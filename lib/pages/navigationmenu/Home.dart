@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:sahelp/data/ColorConstants.dart' as ColorConstants;
+import 'package:sahelp/customwidget/ColorConstants.dart' as ColorConstants;
 import 'package:sahelp/pages/login/Login.dart';
 import 'package:sahelp/pages/login/Register.dart';
 import 'package:sahelp/pages/navigationmenu/NavigationDrawer.dart';
@@ -10,31 +10,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // Widget build(BuildContext context) {
-  //   return SafeArea(
-  //       child: Scaffold(
-  //     appBar: AppBar(
-  //         title: Text("Home"),
-  //         backgroundColor: ColorConstants.AppColors.PRIMARY_COLOR),
-  //     drawer: NavigationDrawer(),
-  //     body: Center(
-  //       child: Column(
-  //           mainAxisAlignment: MainAxisAlignment.center,
-  //           children: <Widget>[
-  //             Text(
-  //               "Home",
-  //               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-  //             ),
-  //             RaisedButton(
-  //               onPressed: () {
-  //                 Navigator.pushNamed(context, "/");
-  //               },
-  //               child: Text("Next"),
-  //             )
-  //           ]),
-  //     ),
-  //   ));
-  // }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import 'package:sahelp/data/MenuData.dart';
+import 'package:sahelp/customwidget/MenuData.dart';
 import "package:sahelp/pages/navigationmenu/DrawerItem.dart";
-import 'package:sahelp/data/ColorConstants.dart' as ColorConstants;
+import 'package:sahelp/customwidget/ColorConstants.dart';
 
 class NavigationDrawer extends StatefulWidget {
   @override
@@ -176,14 +176,13 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
               if (menu.isSubtitle) {
                 return Container(
                   width: MediaQuery.of(context).size.width,
-                  color: ColorConstants.AppColors.APP_BG_GREY,
+                  color: AppColors.APP_HEADER_BG_GREY,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(menu.itemName,
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                            color: ColorConstants
-                                .AppColors.APP_MENU_SUBHEADER_TEXT)),
+                            color: AppColors.APP_MENU_SUBHEADER_TEXT)),
                   ),
                 );
               } else {

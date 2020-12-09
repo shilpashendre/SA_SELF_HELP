@@ -5,7 +5,7 @@ import 'package:sahelp/pages/navigationmenu/Home.dart';
 
 void main() {
   runApp(MaterialApp(
-    initialRoute: "/home",
+    // initialRoute: "/home",
     routes: {
       "/": (context) => Login(),
       "/register": (context) => Register(),
