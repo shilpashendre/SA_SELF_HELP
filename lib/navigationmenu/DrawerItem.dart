@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
-import 'package:sahelp/customwidget/ColorConstants.dart' as ColorConstants;
+import 'package:sahelp/constants/ColorConstants.dart';
 
 class DrawerItem extends StatelessWidget {
   final String itemName;
@@ -18,13 +18,13 @@ class DrawerItem extends StatelessWidget {
             itemIcon,
             height: 15.0,
             width: 15.0,
-            color: ColorConstants.AppColors.APP_MENU_ICON,
+            color: AppColors.APP_MENU_ICON,
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(50.0,0,0,0),
             child: Text(
               itemName,
-              style: TextStyle(color: ColorConstants.AppColors.APP_MENU_TEXT),
+              style: TextStyle(color: AppColors.APP_MENU_TEXT),
             ), 
           )
         ],

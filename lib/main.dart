@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:sahelp/pages/login/Login.dart';
-import 'package:sahelp/pages/login/Register.dart';
-import 'package:sahelp/pages/navigationmenu/Home.dart';
+import 'package:sahelp/SplashScreen.dart';
+import 'package:sahelp/login/Login.dart';
+import 'package:sahelp/login/Register.dart';
+import 'package:sahelp/pages/Home.dart';
+import 'package:sahelp/constants/RouteConstants.dart';
 
 void main() {
   runApp(MaterialApp(
-    // initialRoute: "/home",
+    initialRoute: "/splash",
     routes: {
-      "/": (context) => Login(),
-      "/register": (context) => Register(),
-      "/home": (context) => Home(),
+      RouteConstants.routeLogin: (context) => Login(),
+      "/splash":(context)=>SplashScreen(),
+      RouteConstants.routeRegister: (context) => Register(),
+      RouteConstants.routeHome: (context) => Home(),
     },
   ));
 }

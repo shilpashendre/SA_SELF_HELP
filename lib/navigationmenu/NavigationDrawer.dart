@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:sahelp/customwidget/MenuData.dart';
-import "package:sahelp/pages/navigationmenu/DrawerItem.dart";
-import 'package:sahelp/customwidget/ColorConstants.dart';
+import "package:sahelp/navigationmenu/DrawerItem.dart";
+import 'package:sahelp/constants/ColorConstants.dart';
 
 class NavigationDrawer extends StatefulWidget {
   @override

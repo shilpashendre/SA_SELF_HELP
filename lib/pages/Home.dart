@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import 'package:sahelp/customwidget/ColorConstants.dart' as ColorConstants;
-import 'package:sahelp/pages/login/Login.dart';
-import 'package:sahelp/pages/login/Register.dart';
-import 'package:sahelp/pages/navigationmenu/NavigationDrawer.dart';
+import 'package:sahelp/constants/ColorConstants.dart' as ColorConstants;
+import 'package:sahelp/login/Login.dart';
+import 'package:sahelp/login/Register.dart';
+import 'package:sahelp/navigationmenu/NavigationDrawer.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -25,6 +25,11 @@ class _HomeState extends State<Home> {
                   Tab(text: "Insurance Dashboard")
                 ],
               ),
+              actions: <Widget>[
+                IconButton(
+                    icon: Icon(Icons.help, color: Colors.white),
+                    onPressed: null)
+              ],
             ),
             drawer: NavigationDrawer(),
             body: TabBarView(children: [
