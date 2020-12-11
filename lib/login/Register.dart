@@ -87,7 +87,6 @@ class _RegisterState extends State<Register> {
                   ButtonComponent(
                     btnLabel: "REGISTER",
                     btnColor: AppColors.PRIMARY_COLOR,
-                    minWidth: 115,
                     onTap: () {
                       Navigator.pushNamed(context, "/home");
                     },

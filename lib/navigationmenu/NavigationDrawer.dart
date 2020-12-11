@@ -113,11 +113,11 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       Expanded(
                           flex: 2,
                           child: Container(
-                              width: 100,
+                              width: 80,
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    "assets/images/ic_sa_menu_icon.png",
+                                    "assets/images/icon_logo.png",
                                   ),
                                   fit: BoxFit.cover,
                                 ),

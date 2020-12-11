@@ -57,8 +57,11 @@ class _CustomDialogBoxState extends State<CustomDialogBox> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsets.symmetric(vertical: 0.0, horizontal: 30),
-                      child: Icon(Icons.help, color: Colors.white),
+                          EdgeInsets.symmetric(vertical: 0.0, horizontal: 25),
+                      child: Image.asset(
+                        "assets/images/dialog_appicon.png",
+                        height: 30,
+                      ),
                     ),
                     Text(
                       "SA Taxi Self Help",

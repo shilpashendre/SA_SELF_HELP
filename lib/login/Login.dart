@@ -1,4 +1,3 @@
- 
 import "package:flutter/material.dart";
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/constants/RouteConstants.dart';
@@ -129,7 +128,6 @@ class _LoginState extends State<Login> {
                               ButtonComponent(
                                 btnLabel: "LOGIN",
                                 btnColor: AppColors.PRIMARY_COLOR,
-                                minWidth: 90,
                                 onTap: () {},
                               ),
                               SizedBox(
@@ -163,7 +161,6 @@ class _LoginState extends State<Login> {
                               ButtonComponent(
                                 btnLabel: "REGISTER",
                                 btnColor: AppColors.APP_GREEN,
-                                minWidth: 115,
                                 onTap: () {
                                   Navigator.pushNamed(
                                       context, RouteConstants.routeRegister);
@@ -200,7 +197,6 @@ class _LoginState extends State<Login> {
                               ButtonComponent(
                                 btnLabel: "8681 829 448",
                                 btnColor: AppColors.APP_MENU_SUBHEADER_TEXT,
-                                minWidth: 135,
                                 onTap: () {
                                   showDialog(
                                       context: context,
