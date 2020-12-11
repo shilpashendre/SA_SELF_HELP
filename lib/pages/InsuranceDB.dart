@@ -13,6 +13,7 @@ class _InsuranceDBState extends State<InsuranceDB> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      backgroundColor: AppColors.APP_HEADER_BG_GREY,
       body: Column(
         children: [
           Center(
@@ -74,13 +75,14 @@ class _InsuranceDBState extends State<InsuranceDB> {
                     btnColor: AppColors.APP_MENU_SUBHEADER_TEXT,
                     onTap: () {
                       showDialog(
-                          context: context, builder: (BuildContext context) {
+                          context: context,
+                          builder: (BuildContext context) {
                             return CustomDialogBox(
-                                          title: "Custom Dialog Demo",
-                                          descriptions:
-                                              "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
-                                          text: "Yes",
-                                        );
+                              title: "Custom Dialog Demo",
+                              descriptions:
+                                  "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
+                              text: "Yes",
+                            );
                           });
                     },
                   ),

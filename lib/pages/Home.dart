@@ -17,13 +17,18 @@ class _HomeState extends State<Home> {
           length: 2,
           child: Scaffold(
             appBar: AppBar(
-              title: Text("DASHBOARD"),
+              title: Text(
+                "DASHBOARD",
+                style: TextStyle(color: Colors.white),
+              ),
               backgroundColor: AppColors.PRIMARY_COLOR,
               bottom: TabBar(
                 tabs: [
                   Tab(text: "Deal Dashboard"),
                   Tab(text: "Insurance Dashboard")
                 ],
+                indicatorColor: Colors.white,
+                indicatorSize: TabBarIndicatorSize.label,
               ),
               actions: <Widget>[
                 IconButton(

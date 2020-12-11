@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class DealDB extends StatefulWidget {
+class UserProfile extends StatefulWidget {
   @override
-  _DealDBState createState() => _DealDBState();
+  _UserProfileBState createState() => _UserProfileBState();
 }
 
-class _DealDBState extends State<DealDB> {
+class _UserProfileBState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -38,7 +38,7 @@ class _DealDBState extends State<DealDB> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "063365:065978",
+                        "_UserProfileBState",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: AppColors.PRIMARY_COLOR,

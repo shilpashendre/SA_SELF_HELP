@@ -15,10 +15,10 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: AppColors.APP_BG_GREY,
+      backgroundColor: AppColors.APP_HEADER_BG_GREY,
       body: Container(
         child: Scaffold(
-            backgroundColor: AppColors.APP_BG_GREY,
+            backgroundColor: AppColors.APP_HEADER_BG_GREY,
             body: Stack(
               children: <Widget>[
                 Container(
@@ -215,14 +215,15 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 10,),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(
-                        "assets/images/ic_sa_menu_icon.png",
+                        "assets/images/login_logo_white.png",
                         fit: BoxFit.cover,
                         color: Colors.white,
-                        height: 50,
-                        width: 50,
+                        
+                        width: 150,
                       ),
                     ),
                   ],
