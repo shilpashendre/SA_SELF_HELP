@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Image.asset(
-                        'assets/images/thumbnail.png',
+                        'assets/images/ic_name.png',
                       
                       ),
                       // Padding(

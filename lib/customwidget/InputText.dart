@@ -21,10 +21,10 @@ class InputText extends StatelessWidget {
               EdgeInsets.only(left: 0, bottom: 0, top: 30, right: 15),
           icon: Padding(
             padding: const EdgeInsets.fromLTRB(0, 30, 5, 0),
-            child: SvgPicture.asset(
+            child: Image.asset(
               svgIcon,
-              height: 18.0,
-              width: 18.0,
+              height: 25.0,
+              width: 25.0,
               color: AppColors.APP_MENU_ICON,
             ),
           ),

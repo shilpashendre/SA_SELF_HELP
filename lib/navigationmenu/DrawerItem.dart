@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import "package:flutter_svg/flutter_svg.dart";
 import 'package:sahelp/constants/ColorConstants.dart';
 
 class DrawerItem extends StatelessWidget {
@@ -13,19 +12,20 @@ class DrawerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Row(
+        
         children: <Widget>[
-          SvgPicture.asset(
+          Image.asset(
             itemIcon,
-            height: 15.0,
-            width: 15.0,
+            height: 25.0,
+            width: 25.0,
             color: AppColors.APP_MENU_ICON,
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(50.0,0,0,0),
+            padding: const EdgeInsets.fromLTRB(35.0, 0, 0, 0),
             child: Text(
               itemName,
               style: TextStyle(color: AppColors.APP_MENU_TEXT),
-            ), 
+            ),
           )
         ],
       ),

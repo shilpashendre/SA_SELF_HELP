@@ -12,86 +12,86 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   List<MenuData> listmenu = [
     MenuData(
         itemName: "Dashboard",
-        itemIcon: "assets/images/dashboard.svg",
+        itemIcon: "assets/images/ic_dashboard.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "My SA Taxi Profile",
-        itemIcon: "assets/images/profile.svg",
+        itemIcon: "assets/images/ic_my_portfolio.png",
         isSubtitle: false,
         onTap: null),
     MenuData(itemName: "Account", isSubtitle: true),
     MenuData(
         itemName: "Bank Details",
-        itemIcon: "assets/images/bankdetails.svg",
+        itemIcon: "assets/images/ic_bank_details.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Request Settlement Quote",
-        itemIcon: "assets/images/requestquote.svg",
+        itemIcon: "assets/images/ic_request_settelment_balance.png",
         isSubtitle: false,
         onTap: null),
     MenuData(itemName: "Financial Statement", isSubtitle: true),
     MenuData(
         itemName: "Balance",
-        itemIcon: "assets/images/moneybag.svg",
+        itemIcon: "assets/images/ic_balance.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Deals Details",
-        itemIcon: "assets/images/dealdetails.svg",
+        itemIcon: "assets/images/ic_personal_no.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Arrears Statement",
-        itemIcon: "assets/images/arrears.svg",
+        itemIcon: "assets/images/ic_arrears.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Generate Statement",
-        itemIcon: "assets/images/graph.svg",
+        itemIcon: "assets/images/ic_generate_statement.png",
         isSubtitle: false,
         onTap: null),
     MenuData(itemName: "Vehicle Movements", isSubtitle: true),
     MenuData(
         itemName: "Track Vehicle",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_track_vehicle.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "View Performance",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_view_performance_phase2.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Request CarTrack Device",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_request_cartrack_device.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Mileage per Vehicle",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_view_performance.png",
         isSubtitle: false,
         onTap: null),
     MenuData(itemName: "Insurance", isSubtitle: true),
     MenuData(
         itemName: "Policy Details",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_policy_details.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Claim Call Back",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_claim_call_icon.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "My Claim & Status",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_claims_and_status.png",
         isSubtitle: false,
         onTap: null),
     MenuData(
         itemName: "Generate Insurance Documents",
-        itemIcon: "assets/images/location.svg",
+        itemIcon: "assets/images/ic_generate_statement.png",
         isSubtitle: false,
         onTap: null),
     MenuData(itemName: "SA Taxi Details", isSubtitle: true),
@@ -134,7 +134,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                                           image: DecorationImage(
                                               fit: BoxFit.fill,
                                               image: AssetImage(
-                                                  "assets/images/thumbnail.png")))),
+                                                  "assets/images/ic_name.png")))),
                                 ),
                               ))),
                       Expanded(

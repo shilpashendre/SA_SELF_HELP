@@ -1,8 +1,10 @@
+ 
 import "package:flutter/material.dart";
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/constants/RouteConstants.dart';
 import "package:sahelp/customwidget/InputText.dart";
 import "package:sahelp/customwidget/ButtonComponent.dart";
+import "package:sahelp/customwidget/CustomDialogBox.dart";
 
 class Login extends StatefulWidget {
   @override
@@ -108,14 +110,14 @@ class _LoginState extends State<Login> {
                                     children: [
                                       InputText(
                                         hintText: "SA ID Number",
-                                        svgIcon: "assets/images/SAID.svg",
+                                        svgIcon: "assets/images/ic_name.png",
                                       ),
                                       SizedBox(
                                         height: 7,
                                       ),
                                       InputText(
                                         hintText: "Contact Number",
-                                        svgIcon: "assets/images/password.svg",
+                                        svgIcon: "assets/images/password.png",
                                       ),
                                     ],
                                   ),
@@ -199,7 +201,18 @@ class _LoginState extends State<Login> {
                                 btnLabel: "8681 829 448",
                                 btnColor: AppColors.APP_MENU_SUBHEADER_TEXT,
                                 minWidth: 135,
-                                onTap: () {},
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return CustomDialogBox(
+                                          title: "Custom Dialog Demo",
+                                          descriptions:
+                                              "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
+                                          text: "Yes",
+                                        );
+                                      });
+                                },
                               ),
                             ],
                           ),

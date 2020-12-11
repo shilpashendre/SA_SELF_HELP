@@ -68,14 +68,14 @@ class _RegisterState extends State<Register> {
                         children: [
                           InputText(
                             hintText: "Enter SA ID Number",
-                            svgIcon: "assets/images/SAID.svg",
+                            svgIcon: "assets/images/ic_name.png",
                           ),
                           SizedBox(
                             height: 7,
                           ),
                           InputText(
                             hintText: "Enter Email Address",
-                            svgIcon: "assets/images/email.svg",
+                            svgIcon: "assets/images/email_profile.png",
                           ),
                         ],
                       ),
