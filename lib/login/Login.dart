@@ -1,11 +1,11 @@
 import "package:flutter/material.dart";
-import 'package:sahelp/constants/ColorConstants.dart';
-import 'package:sahelp/constants/RouteConstants.dart';
+import 'package:sahelp/constants/ColorConstants.dart'; 
 import "package:sahelp/customwidget/InputText.dart";
 import "package:sahelp/customwidget/ButtonComponent.dart";
 import "package:sahelp/customwidget/CustomDialogBox.dart";
 
 class Login extends StatefulWidget {
+  static const String routeName = '/login';
   @override
   _LoginState createState() => _LoginState();
 }
@@ -162,8 +162,7 @@ class _LoginState extends State<Login> {
                                 btnLabel: "REGISTER",
                                 btnColor: AppColors.APP_GREEN,
                                 onTap: () {
-                                  Navigator.pushNamed(
-                                      context, RouteConstants.routeRegister);
+                                  Navigator.pushNamed(context, "/drawer");
                                 },
                               ),
                               SizedBox(
@@ -215,14 +214,15 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(
                         "assets/images/login_logo_white.png",
                         fit: BoxFit.cover,
                         color: Colors.white,
-                        
                         width: 150,
                       ),
                     ),

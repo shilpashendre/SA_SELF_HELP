@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/customwidget/ButtonComponent.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart'; 
 
-class DealDetails extends StatefulWidget {
-  static const String routeName = '/dealdetails';
+class PolicyDetails extends StatefulWidget {
   @override
-  _DealDetailsState createState() => _DealDetailsState();
+  _PolicyDetailsState createState() => _PolicyDetailsState();
 }
 
-class _DealDetailsState extends State<DealDetails> {
+class _PolicyDetailsState extends State<PolicyDetails> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
-   
       body: Column(
         children: [
           Center(
@@ -40,7 +39,7 @@ class _DealDetailsState extends State<DealDetails> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "063365:065978",
+                        "063365:059721",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: AppColors.APP_GREEN,
@@ -55,41 +54,47 @@ class _DealDetailsState extends State<DealDetails> {
                     child: Expanded(
                       child: Column(children: <Widget>[
                         DetailItemWidget(
-                          heading: "Account Status",
-                          value: "Open",
+                          heading: "Policy Number",
+                          value: "SAT71619",
                         ),
                         DetailItemWidget(
-                          heading: "Vehicle Description",
-                          value: "TOYOTA QUANTUM SESFIKLE 1...",
+                          heading: "Product",
+                          value: "Vehicle Owner Protection Pl...",
                         ),
                         DetailItemWidget(
-                          heading: "Payment Type",
-                          value: "CASH",
+                          heading: "Broker Name",
+                          value: "SA Taxi Product (Pty) Ltd",
                         ),
                         DetailItemWidget(
-                          heading: "Next Instalment Date",
-                          value: "01 January 2021",
+                          heading: "Motor Insurer Name",
+                          value: "Guardrisk Insurance Company",
                         ),
                         DetailItemWidget(
-                          heading: "Monthly Instalment",
-                          value: "R31 889.99",
+                          heading: "Start Date",
+                          value: "01 September 2015",
                         ),
                         DetailItemWidget(
-                          heading: "Instalment remaining",
-                          value: "14",
+                          heading: "Total Premium",
+                          value: "R0.00",
                         ),
-                        DetailItemWidget(
-                          heading: "Interest Rate",
-                          value: "24.5%",
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 0),
+                          child: Divider(
+                              color: AppColors.APP_GREY_DIVIDER, thickness: 2),
                         ),
-                        DetailItemWidget(
-                          heading: "Deal Inception Date",
-                          value: "03 November 2015",
-                        ),
-                        DetailItemWidget(
-                          heading: "Deal Expiry Date",
-                          value: "03 February 2015",
-                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: <Widget>[
+                              ButtonComponent(
+                                btnLabel: "VIEW DETAILS",
+                                btnColor: AppColors.PRIMARY_COLOR,
+                              ),
+                              ButtonComponent(
+                                btnLabel: "GET A QUOTE",
+                                btnColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                              )
+                            ])
                       ]),
                     ),
                   ),

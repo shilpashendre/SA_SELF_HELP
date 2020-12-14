@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
-import 'package:sahelp/customwidget/DetailItemWidget.dart'; 
+import 'package:sahelp/customwidget/ButtonComponent.dart';
+import 'package:sahelp/customwidget/DetailItemWidget.dart';
+import 'package:sahelp/customwidget/HeaderIconButton.dart';
 
-class DealDetails extends StatefulWidget {
-  static const String routeName = '/dealdetails';
+class MyClaimStatus extends StatefulWidget {
   @override
-  _DealDetailsState createState() => _DealDetailsState();
+  _MyClaimStatusState createState() => _MyClaimStatusState();
 }
 
-class _DealDetailsState extends State<DealDetails> {
+class _MyClaimStatusState extends State<MyClaimStatus> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
-   
       body: Column(
         children: [
           Center(
@@ -40,7 +40,7 @@ class _DealDetailsState extends State<DealDetails> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        "063365:065978",
+                        "063365:059721",
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: AppColors.APP_GREEN,
@@ -55,40 +55,28 @@ class _DealDetailsState extends State<DealDetails> {
                     child: Expanded(
                       child: Column(children: <Widget>[
                         DetailItemWidget(
-                          heading: "Account Status",
-                          value: "Open",
+                          heading: "Policy Number",
+                          value: "SAT71619",
                         ),
                         DetailItemWidget(
-                          heading: "Vehicle Description",
-                          value: "TOYOTA QUANTUM SESFIKLE 1...",
+                          heading: "Claim Number",
+                          value: "-",
                         ),
                         DetailItemWidget(
-                          heading: "Payment Type",
-                          value: "CASH",
+                          heading: "Date Claim Reported",
+                          value: "-",
                         ),
                         DetailItemWidget(
-                          heading: "Next Instalment Date",
-                          value: "01 January 2021",
+                          heading: "Date Claim Qccurred",
+                          value: "-",
                         ),
                         DetailItemWidget(
-                          heading: "Monthly Instalment",
-                          value: "R31 889.99",
+                          heading: "Claim Type",
+                          value: "N/A",
                         ),
                         DetailItemWidget(
-                          heading: "Instalment remaining",
-                          value: "14",
-                        ),
-                        DetailItemWidget(
-                          heading: "Interest Rate",
-                          value: "24.5%",
-                        ),
-                        DetailItemWidget(
-                          heading: "Deal Inception Date",
-                          value: "03 November 2015",
-                        ),
-                        DetailItemWidget(
-                          heading: "Deal Expiry Date",
-                          value: "03 February 2015",
+                          heading: "Current Claim Status",
+                          value: "R0.00",
                         ),
                       ]),
                     ),

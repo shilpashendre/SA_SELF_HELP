@@ -1,12 +1,12 @@
 import "package:flutter/material.dart";
-import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/ColorConstants.dart'; 
 
 class DrawerItem extends StatelessWidget {
   final String itemName;
   final String itemIcon;
-  final Function onTap;
+  final String routeName;
 
-  DrawerItem({this.itemName, this.itemIcon, this.onTap});
+  DrawerItem({this.itemName, this.itemIcon, this.routeName});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class DrawerItem extends StatelessWidget {
           )
         ],
       ),
-      onTap: () {},
+      onTap: () {Navigator.pushReplacementNamed(context, "");},
     );
   }
 }

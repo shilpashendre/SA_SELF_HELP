@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart'; 
 
-class DealDetails extends StatefulWidget {
+class Balance extends StatefulWidget {
   static const String routeName = '/dealdetails';
   @override
-  _DealDetailsState createState() => _DealDetailsState();
+  _BalanceState createState() => _BalanceState();
 }
 
-class _DealDetailsState extends State<DealDetails> {
+class _BalanceState extends State<Balance> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
-   
+      
       body: Column(
         children: [
           Center(
@@ -43,7 +43,7 @@ class _DealDetailsState extends State<DealDetails> {
                         "063365:065978",
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          color: AppColors.APP_GREEN,
+                          color: AppColors.APP_RED,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -54,41 +54,41 @@ class _DealDetailsState extends State<DealDetails> {
                         const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                     child: Expanded(
                       child: Column(children: <Widget>[
-                        DetailItemWidget(
-                          heading: "Account Status",
-                          value: "Open",
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 7),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                  child: Text(
+                                "Arrears Amount",
+                                style: TextStyle(
+                                    color: AppColors.APP_MENU_TEXT,
+                                    fontSize: 12),
+                              )),
+                              Expanded(
+                                  child: Text("R112 111.81",
+                                      style: TextStyle(
+                                          color: AppColors.APP_RED,
+                                          fontSize: 12)))
+                            ],
+                          ),
                         ),
                         DetailItemWidget(
-                          heading: "Vehicle Description",
-                          value: "TOYOTA QUANTUM SESFIKLE 1...",
+                          heading: "Capital Amount",
+                          value: "R124 029.09",
                         ),
                         DetailItemWidget(
-                          heading: "Payment Type",
-                          value: "CASH",
+                          heading: "Payment Arrangement Date",
+                          value: "N/A",
                         ),
                         DetailItemWidget(
-                          heading: "Next Instalment Date",
-                          value: "01 January 2021",
+                          heading: "Payment Arrangement Amount",
+                          value: "N/A",
                         ),
                         DetailItemWidget(
-                          heading: "Monthly Instalment",
-                          value: "R31 889.99",
-                        ),
-                        DetailItemWidget(
-                          heading: "Instalment remaining",
-                          value: "14",
-                        ),
-                        DetailItemWidget(
-                          heading: "Interest Rate",
-                          value: "24.5%",
-                        ),
-                        DetailItemWidget(
-                          heading: "Deal Inception Date",
-                          value: "03 November 2015",
-                        ),
-                        DetailItemWidget(
-                          heading: "Deal Expiry Date",
-                          value: "03 February 2015",
+                          heading: "Total Outstanding",
+                          value: "R236 140.90",
                         ),
                       ]),
                     ),

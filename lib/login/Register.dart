@@ -4,6 +4,7 @@ import "package:sahelp/customwidget/InputText.dart";
 import "package:sahelp/customwidget/ButtonComponent.dart";
 
 class Register extends StatefulWidget {
+  static const String routeName = '/register';
   @override
   _RegisterState createState() => _RegisterState();
 }

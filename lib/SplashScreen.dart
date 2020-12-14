@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/login/Login.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const String routeName = '/';
   final Color backgroundColor = Colors.white;
   final TextStyle styleTextUnderTheLoader = TextStyle(
       fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.black);
@@ -12,7 +13,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   String _versionName = 'V1.0';
   final splashDelay = 5;
 
@@ -29,7 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => Login()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (BuildContext context) => Login()));
   }
 
   @override
@@ -50,11 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     children: <Widget>[
                       Image.asset(
                         'assets/images/ic_name.png',
-                      
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(top: 10.0),
-                      // ),
                     ],
                   )),
                 ),
@@ -69,7 +66,10 @@ class _SplashScreenState extends State<SplashScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             // Spacer(),
-                            Text(_versionName,textAlign: TextAlign.center,),
+                            Text(
+                              _versionName,
+                              textAlign: TextAlign.center,
+                            ),
                             // Spacer(
                             //   flex: 4,
                             // ),
