@@ -10,12 +10,14 @@ import 'package:sahelp/pages/MyClaimStatus.dart';
 import 'package:sahelp/pages/PolicyDetails.dart';
 import 'package:sahelp/pages/MySAProfle.dart';
 
-class DrawerExample extends StatefulWidget {
+class AppNavigation extends StatefulWidget {
+
+  static const String routeName = '/drawer';
   @override
-  HomeDrawer createState() => HomeDrawer();
+  _AppNavigationState createState() => _AppNavigationState();
 }
 
-class HomeDrawer extends State<DrawerExample> {
+class _AppNavigationState extends State<AppNavigation> {
   int selectedDrawerIndex = 0;
   getDrawerItemWidget(int pos) {
     switch (pos) {
