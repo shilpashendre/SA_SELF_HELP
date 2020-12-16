@@ -13,8 +13,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  String _versionName = 'V1.0';
-  final splashDelay = 5;
+  String versionName = 'V1.0';
+  final splashDelay = 3;
 
   @override
   void initState() {
@@ -36,52 +36,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: InkWell(
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex: 7,
-                  child: Container(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/images/ic_name.png',
-                      ),
-                    ],
-                  )),
-                ),
-                Expanded(
-                  child: Column(
-                    children: <Widget>[
-                      // CircularProgressIndicator(),
-                      // Container(
-                      //   height: 10,
-                      // ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: <Widget>[
-                            // Spacer(),
-                            Text(
-                              _versionName,
-                              textAlign: TextAlign.center,
-                            ),
-                            // Spacer(
-                            //   flex: 4,
-                            // ),
-                            // Text('androing'),
-                            // Spacer(),
-                          ])
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        child: Image.asset(
+          "assets/images/splash.png",
+          fit: BoxFit.cover,
         ),
       ),
     );
