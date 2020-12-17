@@ -1,6 +1,6 @@
-import "package:flutter/material.dart"; 
+import "package:flutter/material.dart";
 import 'package:sahelp/pages/tabs/DealDB.dart';
-import 'package:sahelp/pages/tabs/InsuranceDB.dart'; 
+import 'package:sahelp/pages/tabs/InsuranceDB.dart';
 
 class Home extends StatefulWidget {
   static const String routeName = "/home";
@@ -11,13 +11,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: TabBarView(children: [
-          DealDB(),
-          InsuranceDB(),
-        ]),
-      ),
-    );
+    return TabBarView(children: [
+      DealDB(),
+      InsuranceDB(),
+    ]);
   }
 }

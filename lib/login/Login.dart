@@ -1,33 +1,36 @@
 import "package:flutter/material.dart";
-import 'package:sahelp/constants/ColorConstants.dart'; 
-import "package:sahelp/customwidget/InputText.dart";
+import 'package:sahelp/constants/ColorConstants.dart';
 import "package:sahelp/customwidget/ButtonComponent.dart";
 import "package:sahelp/customwidget/CustomDialogBox.dart";
+import 'package:sahelp/customwidget/InputText.dart';
+import 'package:sahelp/login/Register.dart';
 
 class Login extends StatefulWidget {
   static const String routeName = '/login';
+
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
+  bool isErr = false;
+  bool isPwrdErr = false;
+  final text = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
       body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: Scaffold(
-            backgroundColor: AppColors.APP_HEADER_BG_GREY,
-            body: Stack(
+            backgroundColor: AppColors.APP_BG_LOGIN,
+            body: Column(
               children: <Widget>[
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 85,
+                  height: 76,
                   color: AppColors.PRIMARY_COLOR,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -35,202 +38,227 @@ class _LoginState extends State<Login> {
                       Text(
                         "Welcome to ",
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                        ),
+                            color: Colors.white,
+                            fontSize: 19,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            fontFamily: "Roboto"),
                       ),
                       Text(
                         " SA Taxi Self Help",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Roboto"),
                       ),
                     ],
                   ),
                 ),
-                Positioned(
-                  top: 50,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Center(
-                        child: Icon(
-                      Icons.arrow_drop_up,
-                      size: 60,
-                      color: AppColors.APP_BG_GREY,
-                    )),
-                  ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Center(child: Image.asset("assets/images/capp.png")),
                 ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(0, 100.0, 0, 0),
-                      child: Center(
-                        child: Container(
-                          width: MediaQuery.of(context).size.width / 1.1,
-                          height: MediaQuery.of(context).size.height / 1.8,
-                          decoration: BoxDecoration(
-                            boxShadow: <BoxShadow>[
-                              BoxShadow(
-                                color: Colors.grey,
-                                blurRadius: 5,
-                              )
-                            ],
-                            color: Colors.white,
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(
-                                    color: AppColors.APP_HEADER_BG_GREY),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Please Login",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      color: AppColors.PRIMARY_COLOR,
-                                      fontWeight: FontWeight.bold,
+                Container(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 15.0, 0, 0),
+                        child: Center(
+                          child: Container(
+                            width: MediaQuery.of(context).size.width / 1.1,
+                            decoration: BoxDecoration(
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 5,
+                                )
+                              ],
+                              color: Colors.white,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.APP_MAIN_HEADER),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "Please Login",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                          color: AppColors.APP_HEADER_BLUE,
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                margin: EdgeInsetsDirectional.only(
-                                    start: 1.0, end: 1.0),
-                                width: MediaQuery.of(context).size.width,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 18, right: 18),
-                                  child: Column(
-                                    children: [
-                                      InputText(
-                                        hintText: "SA ID Number",
-                                        svgIcon: "assets/images/ic_name.png",
-                                      ),
-                                      SizedBox(
-                                        height: 7,
-                                      ),
-                                      InputText(
-                                        hintText: "Contact Number",
-                                        svgIcon: "assets/images/password.png",
-                                      ),
-                                    ],
+                                Container(
+                                  margin: EdgeInsetsDirectional.only(
+                                      start: 1.0, end: 1.0),
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 18, right: 18),
+                                    child: Column(
+                                      children: [
+                                        InputText(
+                                          hintText: "SA ID Number",
+                                          svgIcon: "assets/images/ic_name.png",
+                                          errMsg: "Please enter SA ID Number",
+                                          isobscureText: false,
+                                          isErr: false,
+                                        ),
+                                        SizedBox(
+                                          height: 0,
+                                        ),
+                                        InputText(
+                                          hintText: "Contact Number",
+                                          svgIcon: "assets/images/password.png",
+                                          errMsg: "Please enter COntact Number",
+                                          isobscureText: true,
+                                          isErr: isPwrdErr,
+                                        ),
+                                        createInputText(
+                                            "Contact Number",
+                                            "assets/images/password.png",
+                                            "Please enter COntact Number",
+                                            true,
+                                            isPwrdErr),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              ButtonComponent(
-                                btnLabel: "LOGIN",
-                                btnColor: AppColors.PRIMARY_COLOR,
-                                onTap: () {},
-                              ),
-                              SizedBox(
-                                height: 10,
-                                child: Divider(
-                                  color: AppColors.APP_MENU_ICON,
+                                SizedBox(
                                   height: 10,
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 15.0, vertical: 10.0),
-                                child: Text(
-                                  "If you do not have an account, please register below",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: AppColors.APP_MENU_SUBHEADER_TEXT),
+                                ButtonComponent(
+                                  btnLabel: "LOGIN",
+                                  btnColor: AppColors.BUTTON_TXT_COLOR,
+                                  onTap: () {},
                                 ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(15.0, 0, 15.0, 0),
-                                child: SizedBox(
+                                SizedBox(
                                   height: 10,
                                   child: Divider(
-                                    color: AppColors.APP_MENU_ICON,
+                                    color: AppColors.DIVIDER,
                                     height: 10,
                                   ),
                                 ),
-                              ),
-                              ButtonComponent(
-                                btnLabel: "REGISTER",
-                                btnColor: AppColors.APP_GREEN,
-                                onTap: () {
-                                  Navigator.pushNamed(context, "/drawer");
-                                },
-                              ),
-                              SizedBox(
-                                height: 10,
-                                child: Divider(
-                                  color: AppColors.APP_MENU_ICON,
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15.0, vertical: 10.0),
+                                  child: Text(
+                                    "If you do not have an account, please register below",
+                                    textAlign: TextAlign.justify,
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.CREATEACCOUNTMSG),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      15.0, 0, 15.0, 0),
+                                  child: SizedBox(
+                                    height: 10,
+                                    child: Divider(
+                                      color: AppColors.DIVIDER,
+                                      height: 10,
+                                    ),
+                                  ),
+                                ),
+                                ButtonComponent(
+                                  btnLabel: "REGISTER",
+                                  btnColor: AppColors.BTN_GREEN,
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, Register.routeName);
+                                  },
+                                ),
+                                SizedBox(
                                   height: 10,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 15.0, vertical: 10.0),
-                                child: Text(
-                                  "If you are experiencing any problems logging in, please contact SA Taxi below",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: AppColors.APP_MENU_SUBHEADER_TEXT),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(15.0, 0, 15.0, 0),
-                                child: SizedBox(
-                                  height: 15,
                                   child: Divider(
-                                    color: AppColors.APP_MENU_ICON,
+                                    color: AppColors.DIVIDER,
                                     height: 10,
                                   ),
                                 ),
-                              ),
-                              ButtonComponent(
-                                btnLabel: "8681 829 448",
-                                btnColor: AppColors.APP_MENU_SUBHEADER_TEXT,
-                                onTap: () {
-                                  showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return CustomDialogBox(
-                                          title: "Custom Dialog Demo",
-                                          descriptions:
-                                              "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
-                                          text: "Yes",
-                                        );
-                                      });
-                                },
-                              ),
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 15.0, vertical: 10.0),
+                                  child: Text(
+                                    "If you are experiencing any problems logging in, please contact SA Taxi below",
+                                    textAlign: TextAlign.justify,
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.CREATEACCOUNTMSG),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      15.0, 0, 15.0, 0),
+                                  child: SizedBox(
+                                    height: 15,
+                                    child: Divider(
+                                      color: AppColors.DIVIDER,
+                                      height: 10,
+                                    ),
+                                  ),
+                                ),
+                                ButtonComponent(
+                                  btnLabel: "8681 829 448",
+                                  btnColor: AppColors.CREATEACCOUNTMSG,
+                                  onTap: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return CustomDialogBox(
+                                            title: "Custom Dialog Demo",
+                                            descriptions:
+                                                "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
+                                            text: "Yes",
+                                          );
+                                        });
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        "assets/images/login_logo_white.png",
-                        fit: BoxFit.cover,
-                        color: Colors.white,
-                        width: 150,
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          "assets/images/sa_taxi_login_logo_white.png",
+                          fit: BoxFit.cover,
+                          color: Colors.white,
+                          width: 120,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             )),
       ),
     ));
+  }
+
+  Widget createInputText(hintText, svgIcon, errMsg, isobscureText, isErr) {
+    return InputText(
+      hintText: hintText,
+      svgIcon: svgIcon,
+      errMsg: errMsg,
+      isobscureText: isobscureText,
+      isErr: isErr,
+    );
   }
 }

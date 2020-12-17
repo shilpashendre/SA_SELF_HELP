@@ -1,4 +1,4 @@
-import "package:flutter/material.dart";
+import "package:flutter/material.dart"; 
 
 class ButtonComponent extends StatelessWidget {
   final String btnLabel;
@@ -19,10 +19,10 @@ class ButtonComponent extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: 27, vertical: 5),
             child: Text(
              btnLabel ,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle( color: Colors.white,fontFamily: "Roboto"),
             ),
           ),
         ),

@@ -12,7 +12,7 @@ class _DealDBState extends State<DealDB> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          backgroundColor: AppColors.APP_HEADER_BG_GREY,
+      backgroundColor: AppColors.APP_HEADER_BG_GREY,
       body: Column(
         children: [
           Center(

@@ -11,7 +11,6 @@ import 'package:sahelp/pages/PolicyDetails.dart';
 import 'package:sahelp/pages/MySAProfle.dart';
 
 class AppNavigation extends StatefulWidget {
-
   static const String routeName = '/drawer';
   @override
   _AppNavigationState createState() => _AppNavigationState();
@@ -74,6 +73,7 @@ class _AppNavigationState extends State<AppNavigation> {
   List<MenuData> listmenu = [
     MenuData(
         itemName: "Dashboard",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_dashboard.png",
         isSubtitle: false,
         isTabPresent: true,
@@ -88,6 +88,7 @@ class _AppNavigationState extends State<AppNavigation> {
         itemIcon: "assets/images/ic_my_portfolio.png",
         isSubtitle: false,
         isTabPresent: true,
+        isIconNeeded: false,
         tabLength: 2,
         tabData: [
           TabDeatils("Vehicle Profiles"),
@@ -104,6 +105,7 @@ class _AppNavigationState extends State<AppNavigation> {
         itemName: "Bank Details",
         itemIcon: "assets/images/ic_bank_details.png",
         isSubtitle: false,
+        isIconNeeded: false,
         tabLength: 1,
         tabData: [
           TabDeatils("   063365:065978  "),
@@ -112,6 +114,7 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(
         isTabPresent: false,
         itemName: "Request Settlement Quote",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_request_settelment_balance.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
@@ -120,12 +123,14 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(
         isTabPresent: false,
         itemName: "Balance",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_balance.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
         isTabPresent: false,
         itemName: "Deals Details",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_personal_no.png",
         isSubtitle: false,
         routeName: "/dealdetails",
@@ -133,12 +138,14 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(
         isTabPresent: false,
         itemName: "Arrears Statement",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_arrears.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
         itemName: "Generate Statement",
         isTabPresent: false,
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_generate_statement.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
@@ -149,24 +156,28 @@ class _AppNavigationState extends State<AppNavigation> {
         itemName: "Track Vehicle",
         itemIcon: "assets/images/ic_track_vehicle.png",
         isSubtitle: false,
+        isIconNeeded: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
-      isTabPresent: false,
-      itemName: "View Performance",
-      itemIcon: "assets/images/ic_view_performance_phase2.png",
-      isSubtitle: false,
-    ),
+        isTabPresent: false,
+        itemName: "View Performance",
+        isIconNeeded: false,
+        itemIcon: "assets/images/ic_view_performance_phase2.png",
+        isSubtitle: false,
+        headerIcon: "ic_email_white.png"),
     MenuData(
         isTabPresent: false,
         itemName: "Request CarTrack Device",
         itemIcon: "assets/images/ic_request_cartrack_device.png",
         isSubtitle: false,
+        isIconNeeded: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
         itemName: "Mileage per Vehicle",
         itemIcon: "assets/images/ic_view_performance.png",
         isTabPresent: true,
         isSubtitle: false,
+        isIconNeeded: false,
         tabLength: 1,
         tabData: [
           TabDeatils("   063365:065978  "),
@@ -178,22 +189,26 @@ class _AppNavigationState extends State<AppNavigation> {
         itemName: "Policy Details",
         itemIcon: "assets/images/ic_policy_details.png",
         isSubtitle: false,
+        isIconNeeded: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
         isTabPresent: false,
         itemName: "Claim Call Back",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_claim_call_icon.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
         isTabPresent: false,
         itemName: "My Claim & Status",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_claims_and_status.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
         isTabPresent: false,
         itemName: "Generate Insurance Documents",
+        isIconNeeded: false,
         itemIcon: "assets/images/ic_generate_statement.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
@@ -211,7 +226,11 @@ class _AppNavigationState extends State<AppNavigation> {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: AppColors.PRIMARY_COLOR,
-            title: Text(listmenu[selectedDrawerIndex].itemName.toUpperCase()),
+            title: Text(
+              listmenu[selectedDrawerIndex].itemName.toUpperCase(),
+              style:
+                  TextStyle(fontWeight: FontWeight.w500, fontFamily: "Roboto"),
+            ),
             bottom: listmenu[selectedDrawerIndex].isTabPresent
                 ? TabBar(
                     tabs: listmenu[selectedDrawerIndex]
@@ -223,12 +242,17 @@ class _AppNavigationState extends State<AppNavigation> {
                             ))
                         .toList(),
                     indicatorColor: Colors.white,
-                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorWeight: 3.0,
+                    // indicatorPadding:
+                    //     EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   )
                 : null,
             actions: <Widget>[
-              HeaderIconButton(
-                  iconName: listmenu[selectedDrawerIndex].headerIcon),
+              listmenu[selectedDrawerIndex].isIconNeeded
+                  ? HeaderIconButton(
+                      iconName: listmenu[selectedDrawerIndex].headerIcon)
+                  : Text("")
             ],
           ),
           drawer: Drawer(
@@ -236,6 +260,9 @@ class _AppNavigationState extends State<AppNavigation> {
               flex: 1,
               child: ListView(padding: EdgeInsets.zero, children: <Widget>[
                 DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: AppColors.PRIMARY_COLOR,
+                  ),
                   child: Expanded(
                       flex: 3,
                       child: Column(
@@ -245,13 +272,11 @@ class _AppNavigationState extends State<AppNavigation> {
                             Expanded(
                                 flex: 2,
                                 child: Container(
-                                    width: 80,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: AssetImage(
-                                          "assets/images/icon_logo.png",
+                                          "assets/images/top_user_icon.png",
                                         ),
-                                        fit: BoxFit.cover,
                                       ),
                                     ),
                                     child: Padding(
@@ -290,10 +315,10 @@ class _AppNavigationState extends State<AppNavigation> {
                                             style:
                                                 TextStyle(color: Colors.white),
                                           ),
-                                          Icon(
-                                            Icons.power_settings_new,
-                                            color: Colors.white,
-                                            size: 20,
+                                          Image.asset(
+                                            "assets/images/logout_icon.png",
+                                            height: 18,
+                                            width: 18,
                                           )
                                         ],
                                       ),
@@ -301,7 +326,6 @@ class _AppNavigationState extends State<AppNavigation> {
                                   ],
                                 ))
                           ])),
-                  decoration: BoxDecoration(color: Colors.blue),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -333,8 +357,9 @@ class _AppNavigationState extends State<AppNavigation> {
                               padding: const EdgeInsets.fromLTRB(35.0, 0, 0, 0),
                               child: Text(
                                 menu.value.itemName,
-                                style:
-                                    TextStyle(color: AppColors.APP_MENU_TEXT),
+                                style: TextStyle(
+                                  color: AppColors.APP_MENU_TEXT,
+                                ),
                               ),
                             )
                           ],

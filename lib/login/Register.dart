@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:sahelp/constants/ColorConstants.dart';
 import "package:sahelp/customwidget/InputText.dart";
 import "package:sahelp/customwidget/ButtonComponent.dart";
+import 'package:sahelp/navigationmenu/AppNavigation.dart';
 
 class Register extends StatefulWidget {
   static const String routeName = '/register';
@@ -54,7 +55,7 @@ class _RegisterState extends State<Register> {
                         "New Registration",
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          color: AppColors.PRIMARY_COLOR,
+                          color: AppColors.APP_HEADER_BLUE,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -70,6 +71,9 @@ class _RegisterState extends State<Register> {
                           InputText(
                             hintText: "Enter SA ID Number",
                             svgIcon: "assets/images/ic_name.png",
+                            isErr: false,
+                            isobscureText: false,
+                            errMsg: "Please Enter SA ID Number",
                           ),
                           SizedBox(
                             height: 7,
@@ -77,6 +81,9 @@ class _RegisterState extends State<Register> {
                           InputText(
                             hintText: "Enter Email Address",
                             svgIcon: "assets/images/email_profile.png",
+                            isErr: false,
+                            isobscureText: false,
+                            errMsg: "Please enter Email Address",
                           ),
                         ],
                       ),
@@ -89,7 +96,7 @@ class _RegisterState extends State<Register> {
                     btnLabel: "REGISTER",
                     btnColor: AppColors.PRIMARY_COLOR,
                     onTap: () {
-                      Navigator.pushNamed(context, "/home");
+                      Navigator.pushNamed(context, AppNavigation.routeName);
                     },
                   ),
                 ],

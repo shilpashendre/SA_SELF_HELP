@@ -4,6 +4,7 @@ class MenuData {
   String routeName;
   bool isSubtitle;
   bool isTabPresent;
+  bool isIconNeeded;
   List<TabDeatils> tabData;
   String headerIcon;
   int tabLength;
@@ -13,6 +14,7 @@ class MenuData {
       this.itemIcon,
       this.routeName,
       this.isSubtitle,
+      this.isIconNeeded,
       this.isTabPresent,
       this.tabLength,
       this.headerIcon,

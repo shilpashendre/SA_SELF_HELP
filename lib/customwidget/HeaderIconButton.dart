@@ -10,6 +10,8 @@ class HeaderIconButton extends StatelessWidget {
     return IconButton(
         icon: Image.asset(
           "assets/images/" + iconName,
+          height: 25,
+          width: 25,
         ),
         onPressed: null);
   }
