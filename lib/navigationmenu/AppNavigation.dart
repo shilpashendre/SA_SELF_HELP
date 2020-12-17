@@ -210,6 +210,7 @@ class _AppNavigationState extends State<AppNavigation> {
             : 0,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: AppColors.PRIMARY_COLOR,
             title: Text(listmenu[selectedDrawerIndex].itemName.toUpperCase()),
             bottom: listmenu[selectedDrawerIndex].isTabPresent
                 ? TabBar(
@@ -222,7 +223,7 @@ class _AppNavigationState extends State<AppNavigation> {
                             ))
                         .toList(),
                     indicatorColor: Colors.white,
-                    indicatorSize: TabBarIndicatorSize.label,
+                    indicatorSize: TabBarIndicatorSize.tab,
                   )
                 : null,
             actions: <Widget>[
