@@ -9,12 +9,10 @@ class BankDetails extends StatefulWidget {
 class _BankDetailsState extends State<BankDetails> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: TabBarView(children: [
+    return   TabBarView(children: [
           BankDetailsTab(),
-        ]),
-      ),
-    );
+        ]);
+       
+    
   }
 }

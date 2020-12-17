@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/customwidget/MenuData.dart';
 import 'package:sahelp/customwidget/HeaderIconButton.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
@@ -9,6 +10,7 @@ import 'package:sahelp/pages/MileagePerVehicle.dart';
 import 'package:sahelp/pages/MyClaimStatus.dart';
 import 'package:sahelp/pages/PolicyDetails.dart';
 import 'package:sahelp/pages/MySAProfle.dart';
+import 'package:sahelp/pages/generateInsuranceDoc.dart';
 
 class AppNavigation extends StatefulWidget {
   static const String routeName = '/drawer';
@@ -59,7 +61,7 @@ class _AppNavigationState extends State<AppNavigation> {
       case 18:
         return new MyClaimStatus();
       case 19:
-        return new Text("Error");
+        return new GenerateInsuranceDoc();
       default:
         return new Text("Error");
     }
@@ -206,11 +208,16 @@ class _AppNavigationState extends State<AppNavigation> {
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
-        isTabPresent: false,
+        isTabPresent: true,
         itemName: "Generate Insurance Documents",
         isIconNeeded: false,
         itemIcon: "assets/images/ic_generate_statement.png",
         isSubtitle: false,
+        tabLength: 2,
+        tabData: [
+          TabDeatils("Passanger Liability Disc"),
+          TabDeatils("Insurance T&C")
+        ],
         headerIcon: "ic_email_white.png"),
     MenuData(
         itemName: "SA Taxi Details", isTabPresent: false, isSubtitle: true),
@@ -244,6 +251,7 @@ class _AppNavigationState extends State<AppNavigation> {
                     indicatorColor: Colors.white,
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorWeight: 3.0,
+                    isScrollable: true,
                     // indicatorPadding:
                     //     EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   )
@@ -260,73 +268,67 @@ class _AppNavigationState extends State<AppNavigation> {
               flex: 1,
               child: ListView(padding: EdgeInsets.zero, children: <Widget>[
                 DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: AppColors.PRIMARY_COLOR,
-                  ),
-                  child: Expanded(
-                      flex: 3,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Expanded(
-                                flex: 2,
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          "assets/images/top_user_icon.png",
-                                        ),
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.fromLTRB(25, 25, 0, 0),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(15.0),
-                                        child: Container(
-                                            height: 10,
-                                            width: 10,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                image: DecorationImage(
-                                                    fit: BoxFit.fill,
-                                                    image: AssetImage(
-                                                        "assets/images/ic_name.png")))),
-                                      ),
-                                    ))),
-                            Expanded(
-                                flex: 1,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                    decoration: BoxDecoration(
+                      color: AppColors.PRIMARY_COLOR,
+                    ),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    "assets/images/top_user_icon.png",
+                                  ),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(25, 25, 0, 0),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: Container(
+                                      height: 10,
+                                      width: 10,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image: AssetImage(
+                                                  "assets/images/ic_name.png")))),
+                                ),
+                              )),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Mr Lawrence Thabathile Wem",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              Align(
+                                alignment: Alignment.topLeft,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Mr Lawrence Thabathile Wem",
+                                      "063365",
                                       style: TextStyle(color: Colors.white),
                                     ),
-                                    Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            "063365",
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                          Image.asset(
-                                            "assets/images/logout_icon.png",
-                                            height: 18,
-                                            width: 18,
-                                          )
-                                        ],
-                                      ),
-                                    ),
+                                    Image.asset(
+                                      "assets/images/logout_icon.png",
+                                      height: 18,
+                                      width: 18,
+                                    )
                                   ],
-                                ))
-                          ])),
-                ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ])),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.stretch,

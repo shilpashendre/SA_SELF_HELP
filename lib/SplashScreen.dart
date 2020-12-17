@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/login/Login.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
+    
     _loadWidget();
   }
 
@@ -35,6 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    DeviceHelper.init(context);
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,

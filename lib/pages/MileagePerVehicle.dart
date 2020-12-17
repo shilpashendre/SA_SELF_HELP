@@ -10,10 +10,6 @@ class MileagePerVehicle extends StatefulWidget {
 class _MileagePerVehicleState extends State<MileagePerVehicle> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: TabBarView(children: [MileageVehicleTab()]),
-      ),
-    );
+    return TabBarView(children: [MileageVehicleTab()]);
   }
 }
