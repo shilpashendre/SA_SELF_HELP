@@ -166,7 +166,7 @@ class _RegisterState extends State<Register> {
                         });
                       }
 
-                      Navigator.pushNamed(context, AppNavigation.routeName);
+                      // Navigator.pushNamed(context, AppNavigation.routeName);
                     },
                   ),
                 ],
