@@ -4,7 +4,7 @@ import "package:sahelp/customwidget/ButtonComponent.dart";
 import "package:sahelp/customwidget/CustomDialogBox.dart";
 import "package:sahelp/customwidget/InavlidLoginInputDialog.dart";
 import 'package:sahelp/customwidget/InputText.dart';
-import 'package:sahelp/login/Register.dart';
+import 'package:sahelp/pages/login/Register.dart';
 
 class Login extends StatefulWidget {
   static const String routeName = '/login';
