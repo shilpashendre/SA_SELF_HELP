@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/SplashScreen.dart';
-import 'package:sahelp/login/Login.dart';
-import 'package:sahelp/login/Register.dart';
+import 'package:sahelp/pages/login/Login.dart';
+import 'package:sahelp/pages/login/Register.dart';
 import 'package:sahelp/navigationmenu/AppNavigation.dart';
 
 void main() {

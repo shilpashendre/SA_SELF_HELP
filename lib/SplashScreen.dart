@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/device_helper.dart';
-import 'package:sahelp/login/Login.dart';
+import 'package:sahelp/pages/login/Login.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = '/';
