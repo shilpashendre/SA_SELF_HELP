@@ -102,7 +102,7 @@ class _RegisterState extends State<Register> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: AppColors.APP_HEADER_BLUE,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
@@ -140,6 +140,10 @@ class _RegisterState extends State<Register> {
                       // Navigator.pushNamed(context, AppNavigation.routeName);
 
                       if (saIdController.text == "1") {
+                        Navigator.pushNamed(context, AppNavigation.routeName);
+                      }
+
+                      if (saIdController.text == "2") {
                         showDialog(
                             context: context,
                             builder: (BuildContext context) {
@@ -148,7 +152,7 @@ class _RegisterState extends State<Register> {
                       }
 
                       if (saIdController.text.length < 13) {
-                        setState(() {
+                        return setState(() {
                           isSAValid = false;
                         });
                       } else {
@@ -156,6 +160,7 @@ class _RegisterState extends State<Register> {
                           isSAValid = true;
                         });
                       }
+
                       if (Validations.isEmailValid(emailController.text)) {
                         setState(() {
                           isEmailValid = false;
@@ -165,8 +170,6 @@ class _RegisterState extends State<Register> {
                           isEmailValid = true;
                         });
                       }
-
-                      Navigator.pushNamed(context, AppNavigation.routeName);
                     },
                   ),
                 ],

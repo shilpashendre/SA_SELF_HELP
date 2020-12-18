@@ -231,6 +231,7 @@ class _AppNavigationState extends State<AppNavigation> {
             ? listmenu[selectedDrawerIndex].tabLength
             : 0,
         child: Scaffold(
+          backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: AppColors.PRIMARY_COLOR,
             title: Text(
