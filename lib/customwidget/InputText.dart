@@ -8,6 +8,7 @@ class InputText extends StatelessWidget {
   final int maxLength;
   final bool isErr;
   final bool isobscureText;
+  final TextEditingController myController;
 
   InputText(
       {this.hintText,
@@ -15,15 +16,19 @@ class InputText extends StatelessWidget {
       this.isErr,
       this.errMsg,
       this.isobscureText,
+      this.myController,
       this.maxLength});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      maxLength: 13,
       obscureText: isobscureText,
       cursorColor: Colors.black,
       keyboardType: TextInputType.number,
+      controller: myController,
       decoration: InputDecoration(
+          counterText: "",
           isDense: true,
           enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: AppColors.APP_MENU_ICON)),
@@ -44,8 +49,7 @@ class InputText extends StatelessWidget {
           hintText: hintText,
           errorText: isErr ? errMsg : null,
           errorStyle: TextStyle(fontSize: 11),
-          hintStyle: TextStyle(
-              color: AppColors.APP_MENU_ICON, fontSize: 14)),
+          hintStyle: TextStyle(color: AppColors.APP_MENU_ICON, fontSize: 14)),
     );
   }
 }
