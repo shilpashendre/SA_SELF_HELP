@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
     DeviceHelper.init(context);
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height,
+        height: DeviceHelper.fullHeight,
         child: Image.asset(
           "assets/images/splash.png",
           fit: BoxFit.cover,

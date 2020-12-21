@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sahelp/constants/device_helper.dart';
+import 'package:flutter/material.dart'; 
 import 'package:sahelp/customwidget/MenuData.dart';
 import 'package:sahelp/customwidget/HeaderIconButton.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
@@ -75,7 +74,7 @@ class _AppNavigationState extends State<AppNavigation> {
   List<MenuData> listmenu = [
     MenuData(
         itemName: "Dashboard",
-        isIconNeeded: false,
+        isIconNeeded: true,
         itemIcon: "assets/images/ic_dashboard.png",
         isSubtitle: false,
         isTabPresent: true,
@@ -107,7 +106,7 @@ class _AppNavigationState extends State<AppNavigation> {
         itemName: "Bank Details",
         itemIcon: "assets/images/ic_bank_details.png",
         isSubtitle: false,
-        isIconNeeded: false,
+        isIconNeeded: true,
         tabLength: 1,
         tabData: [
           TabDeatils("   063365:065978  "),
@@ -125,14 +124,14 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(
         isTabPresent: false,
         itemName: "Balance",
-        isIconNeeded: false,
+        isIconNeeded: true,
         itemIcon: "assets/images/ic_balance.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
     MenuData(
         isTabPresent: false,
         itemName: "Deals Details",
-        isIconNeeded: false,
+        isIconNeeded: true,
         itemIcon: "assets/images/ic_personal_no.png",
         isSubtitle: false,
         routeName: "/dealdetails",
@@ -140,7 +139,7 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(
         isTabPresent: false,
         itemName: "Arrears Statement",
-        isIconNeeded: false,
+        isIconNeeded: true,
         itemIcon: "assets/images/ic_arrears.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),
@@ -179,7 +178,7 @@ class _AppNavigationState extends State<AppNavigation> {
         itemIcon: "assets/images/ic_view_performance.png",
         isTabPresent: true,
         isSubtitle: false,
-        isIconNeeded: false,
+        isIconNeeded: true,
         tabLength: 1,
         tabData: [
           TabDeatils("   063365:065978  "),
@@ -191,7 +190,7 @@ class _AppNavigationState extends State<AppNavigation> {
         itemName: "Policy Details",
         itemIcon: "assets/images/ic_policy_details.png",
         isSubtitle: false,
-        isIconNeeded: false,
+        isIconNeeded: true,
         headerIcon: "ic_email_white.png"),
     MenuData(
         isTabPresent: false,
@@ -203,7 +202,7 @@ class _AppNavigationState extends State<AppNavigation> {
     MenuData(
         isTabPresent: false,
         itemName: "My Claim & Status",
-        isIconNeeded: false,
+        isIconNeeded: true,
         itemIcon: "assets/images/ic_claims_and_status.png",
         isSubtitle: false,
         headerIcon: "ic_email_white.png"),

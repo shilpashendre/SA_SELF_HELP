@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/navigationmenu/AppNavigation.dart';
 
 class RegisterConfirmDialog extends StatefulWidget {
   final String title, descriptions, text;
@@ -110,8 +111,7 @@ class _RegisterConfirmDialogState extends State<RegisterConfirmDialog> {
                 height: 400,
                 child: Scrollbar(
                   isAlwaysShown: true,
-                  controller: myScrollController,
-                  
+                  controller: ScrollController(initialScrollOffset: 0.0),
                   child: SingleChildScrollView(
                     child: Padding(
                       padding:
@@ -235,12 +235,17 @@ class _RegisterConfirmDialogState extends State<RegisterConfirmDialog> {
                         dialogButton(
                           "YES",
                           AppColors.APP_HEADER_BLUE,
-                          () {},
+                          () {
+                            Navigator.pushNamed(
+                                context, AppNavigation.routeName);
+                          },
                         ),
                         dialogButton(
                           "NO",
                           AppColors.APP_MENU_SUBHEADER_TEXT,
-                          () {},
+                          () {
+                            Navigator.of(context).pop();
+                          },
                         ),
                       ],
                     )

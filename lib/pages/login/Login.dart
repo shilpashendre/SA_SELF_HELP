@@ -1,9 +1,11 @@
 import "package:flutter/material.dart";
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/device_helper.dart';
 import "package:sahelp/customwidget/ButtonComponent.dart";
 import "package:sahelp/customwidget/CustomDialogBox.dart";
 import "package:sahelp/customwidget/InavlidLoginInputDialog.dart";
 import 'package:sahelp/customwidget/InputText.dart';
+import 'package:sahelp/navigationmenu/AppNavigation.dart';
 import 'package:sahelp/pages/login/Register.dart';
 
 class Login extends StatefulWidget {
@@ -41,7 +43,7 @@ class _LoginState extends State<Login> {
                 children: <Widget>[
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 76,
+                    height: DeviceHelper.dh76,
                     color: AppColors.PRIMARY_COLOR,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -77,7 +79,7 @@ class _LoginState extends State<Login> {
                           padding: const EdgeInsets.fromLTRB(0, 15.0, 0, 0),
                           child: Center(
                             child: Container(
-                              width: MediaQuery.of(context).size.width / 1.1,
+                              width: DeviceHelper.loginContainerWidth,
                               decoration: BoxDecoration(
                                 boxShadow: <BoxShadow>[
                                   BoxShadow(
@@ -142,7 +144,7 @@ class _LoginState extends State<Login> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: DeviceHelper.dh10,
                                   ),
                                   ButtonComponent(
                                     btnLabel: "LOGIN",
@@ -175,13 +177,18 @@ class _LoginState extends State<Login> {
                                           isPasswordValid = false;
                                         });
                                       }
+
+                                      if (!isSAValid && !isPasswordValid) {
+                                        Navigator.pushNamed(
+                                            context, AppNavigation.routeName);
+                                      }
                                     },
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: DeviceHelper.dh10,
                                     child: Divider(
                                       color: AppColors.DIVIDER,
-                                      height: 10,
+                                      height: DeviceHelper.dh10,
                                     ),
                                   ),
                                   Padding(
@@ -200,10 +207,10 @@ class _LoginState extends State<Login> {
                                     padding: const EdgeInsets.fromLTRB(
                                         15.0, 0, 15.0, 0),
                                     child: SizedBox(
-                                      height: 10,
+                                      height: DeviceHelper.dh10,
                                       child: Divider(
                                         color: AppColors.DIVIDER,
-                                        height: 10,
+                                        height: DeviceHelper.dh10,
                                       ),
                                     ),
                                   ),
@@ -216,10 +223,10 @@ class _LoginState extends State<Login> {
                                     },
                                   ),
                                   SizedBox(
-                                    height: 10,
+                                    height: DeviceHelper.dh10,
                                     child: Divider(
                                       color: AppColors.DIVIDER,
-                                      height: 10,
+                                      height: DeviceHelper.dh10,
                                     ),
                                   ),
                                   Padding(
@@ -238,10 +245,10 @@ class _LoginState extends State<Login> {
                                     padding: const EdgeInsets.fromLTRB(
                                         15.0, 0, 15.0, 0),
                                     child: SizedBox(
-                                      height: 15,
+                                      height: DeviceHelper.dh15,
                                       child: Divider(
                                         color: AppColors.DIVIDER,
-                                        height: 10,
+                                        height: DeviceHelper.dh10,
                                       ),
                                     ),
                                   ),
@@ -262,7 +269,7 @@ class _LoginState extends State<Login> {
                                     },
                                   ),
                                   SizedBox(
-                                    height: 5,
+                                    height: DeviceHelper.dh5,
                                   ),
                                 ],
                               ),

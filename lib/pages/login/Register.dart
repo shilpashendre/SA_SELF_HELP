@@ -4,7 +4,6 @@ import 'package:sahelp/constants/Validations.dart';
 import "package:sahelp/customwidget/InputText.dart";
 import "package:sahelp/customwidget/ButtonComponent.dart";
 import "package:sahelp/customwidget/RegisterConfirmDialog.dart";
-import 'package:sahelp/navigationmenu/AppNavigation.dart';
 
 class Register extends StatefulWidget {
   static const String routeName = '/register';
@@ -118,7 +117,7 @@ class _RegisterState extends State<Register> {
                             myController: saIdController,
                             hintText: "Enter SA ID Number",
                             svgIcon: "assets/images/ic_name.png",
-                            isErr: false,
+                            isErr: isSAValid,
                             isobscureText: false,
                             errMsg: "Please Enter SA ID Number",
                           ),
@@ -139,36 +138,33 @@ class _RegisterState extends State<Register> {
                     onTap: () {
                       // Navigator.pushNamed(context, AppNavigation.routeName);
 
-                      if (saIdController.text == "1") {
-                        Navigator.pushNamed(context, AppNavigation.routeName);
+                      if (saIdController.text.length < 13) {
+                        return setState(() {
+                          isSAValid = true;
+                        });
+                      } else {
+                        print("2");
+                        setState(() {
+                          isSAValid = false;
+                        });
                       }
 
-                      if (saIdController.text == "2") {
+                      if (!Validations.isEmailValid(emailController.text)) {
+                        setState(() {
+                          isEmailValid = true;
+                        });
+                      } else {
+                        setState(() {
+                          isEmailValid = false;
+                        });
+                      }
+
+                      if (!isEmailValid && !isSAValid) {
                         showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return RegisterConfirmDialog();
                             });
-                      }
-
-                      if (saIdController.text.length < 13) {
-                        return setState(() {
-                          isSAValid = false;
-                        });
-                      } else {
-                        setState(() {
-                          isSAValid = true;
-                        });
-                      }
-
-                      if (Validations.isEmailValid(emailController.text)) {
-                        setState(() {
-                          isEmailValid = false;
-                        });
-                      } else {
-                        setState(() {
-                          isEmailValid = true;
-                        });
                       }
                     },
                   ),
