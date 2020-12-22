@@ -51,42 +51,40 @@ class _MileageVehicleTabState extends State<MileageVehicleTab> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 0, vertical: 15),
-                      child: Expanded(
-                        child: Column(children: <Widget>[
-                          DetailItemWidget(
-                            heading: "Current Month's Mileage...",
-                            value: "391.15 km",
-                          ),
-                          DetailItemWidget(
-                            heading: "Current Month's Days wit...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Total Drive Time",
-                            value: "0.0 hr",
-                          ),
-                          DetailItemWidget(
-                            heading: "Braking Alerts per 100 k...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Harsh Turning Alerts",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Harsh Turning Alerts per...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Speeding Alerts",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Last Signal Received Date",
-                            value: "03 December 2020",
-                          ),
-                        ]),
-                      ),
+                      child: Column(children: <Widget>[
+                        DetailItemWidget(
+                          heading: "Current Month's Mileage...",
+                          value: "391.15 km",
+                        ),
+                        DetailItemWidget(
+                          heading: "Current Month's Days wit...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Total Drive Time",
+                          value: "0.0 hr",
+                        ),
+                        DetailItemWidget(
+                          heading: "Braking Alerts per 100 k...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Harsh Turning Alerts",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Harsh Turning Alerts per...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Speeding Alerts",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Last Signal Received Date",
+                          value: "03 December 2020",
+                        ),
+                      ]),
                     ),
                   ],
                 ),
@@ -130,42 +128,40 @@ class _MileageVehicleTabState extends State<MileageVehicleTab> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 0, vertical: 15),
-                      child: Expanded(
-                        child: Column(children: <Widget>[
-                          DetailItemWidget(
-                            heading: "Current Month's Mileage...",
-                            value: "391.15 km",
-                          ),
-                          DetailItemWidget(
-                            heading: "Current Month's Days wit...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Total Drive Time",
-                            value: "0.0 hr",
-                          ),
-                          DetailItemWidget(
-                            heading: "Braking Alerts per 100 k...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Harsh Turning Alerts",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Harsh Turning Alerts per...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Speeding Alerts",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Last Signal Received Date",
-                            value: "03 December 2020",
-                          ),
-                        ]),
-                      ),
+                      child: Column(children: <Widget>[
+                        DetailItemWidget(
+                          heading: "Current Month's Mileage...",
+                          value: "391.15 km",
+                        ),
+                        DetailItemWidget(
+                          heading: "Current Month's Days wit...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Total Drive Time",
+                          value: "0.0 hr",
+                        ),
+                        DetailItemWidget(
+                          heading: "Braking Alerts per 100 k...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Harsh Turning Alerts",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Harsh Turning Alerts per...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Speeding Alerts",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Last Signal Received Date",
+                          value: "03 December 2020",
+                        ),
+                      ]),
                     ),
                   ],
                 ),
@@ -209,42 +205,40 @@ class _MileageVehicleTabState extends State<MileageVehicleTab> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 0, vertical: 15),
-                      child: Expanded(
-                        child: Column(children: <Widget>[
-                          DetailItemWidget(
-                            heading: "Current Month's Mileage...",
-                            value: "391.15 km",
-                          ),
-                          DetailItemWidget(
-                            heading: "Current Month's Days wit...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Total Drive Time",
-                            value: "0.0 hr",
-                          ),
-                          DetailItemWidget(
-                            heading: "Braking Alerts per 100 k...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Harsh Turning Alerts",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Harsh Turning Alerts per...",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Speeding Alerts",
-                            value: "0",
-                          ),
-                          DetailItemWidget(
-                            heading: "Last Signal Received Date",
-                            value: "03 December 2020",
-                          ),
-                        ]),
-                      ),
+                      child: Column(children: <Widget>[
+                        DetailItemWidget(
+                          heading: "Current Month's Mileage...",
+                          value: "391.15 km",
+                        ),
+                        DetailItemWidget(
+                          heading: "Current Month's Days wit...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Total Drive Time",
+                          value: "0.0 hr",
+                        ),
+                        DetailItemWidget(
+                          heading: "Braking Alerts per 100 k...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Harsh Turning Alerts",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Harsh Turning Alerts per...",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Speeding Alerts",
+                          value: "0",
+                        ),
+                        DetailItemWidget(
+                          heading: "Last Signal Received Date",
+                          value: "03 December 2020",
+                        ),
+                      ]),
                     ),
                   ],
                 ),

@@ -7,7 +7,6 @@ class MenuData {
   bool isIconNeeded;
   List<TabDeatils> tabData;
   String headerIcon;
-  int tabLength;
 
   MenuData(
       {this.itemName,
@@ -16,7 +15,6 @@ class MenuData {
       this.isSubtitle,
       this.isIconNeeded,
       this.isTabPresent,
-      this.tabLength,
       this.headerIcon,
       this.tabData});
 }

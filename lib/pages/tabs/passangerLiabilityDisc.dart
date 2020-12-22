@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/constants/device_helper.dart';
-import "package:sahelp/customwidget/ButtonComponent.dart";
 import "package:sahelp/customwidget/CustomDialogBox.dart";
+import 'package:sahelp/customwidget/DealNoDialog.dart';
 
 class PassangerLiabilityDisc extends StatefulWidget {
   final String strNote =
@@ -12,6 +12,7 @@ class PassangerLiabilityDisc extends StatefulWidget {
 }
 
 class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
+  String dealNo = "Click To Select";
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -67,22 +68,31 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                                 height: DeviceHelper.deviceSize.width * 0.04,
                                 width: DeviceHelper.deviceSize.width * 0.04,
                               ),
-                              Container(
-                                child: Stack(children: [
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(7, 0, 0, 0),
-                                    child: Text(
-                                      "Click To Select",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontSize: 13,
-                                          color: AppColors.DIVIDER),
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return DealNoDialog();
+                                      });
+                                },
+                                child: Container(
+                                  child: Stack(children: [
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(7, 0, 0, 0),
+                                      child: Text(
+                                        dealNo,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 13,
+                                            color: AppColors.DIVIDER),
+                                      ),
                                     ),
-                                  ),
-                                  Image.asset(
-                                      "assets/images/bg_clicktoselect.png")
-                                ]),
+                                    Image.asset(
+                                        "assets/images/bg_clicktoselect.png")
+                                  ]),
+                                ),
                               ),
                               Text("Deal No",
                                   textAlign: TextAlign.right,
@@ -124,7 +134,8 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                                                 isDense: true,
                                                 enabledBorder:
                                                     UnderlineInputBorder(
-                                                        borderSide: BorderSide(width: 0.5,
+                                                        borderSide: BorderSide(
+                                                            width: 0.5,
                                                             color: AppColors
                                                                 .APP_MENU_ICON)),
                                                 focusedBorder:
@@ -143,10 +154,15 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                                           )))
                                 ]),
                               ),
-                              Text("Vehicle Reg No",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 13, color: AppColors.DIVIDER)),
+                              Container(
+                                width: 100,
+                                color: AppColors.APP_RED,
+                                child: Text("Vehicle Reg No",
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        color: AppColors.DIVIDER)),
+                              ),
                             ],
                           ),
                         ),
@@ -162,22 +178,7 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                       ],
                     ),
                   ),
-                  ButtonComponent(
-                    btnLabel: "GENERATE REPORT",
-                    btnColor: AppColors.APP_HEADER_BLUE,
-                    onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return CustomDialogBox(
-                              title: "Custom Dialog Demo",
-                              descriptions:
-                                  "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
-                              text: "Yes",
-                            );
-                          });
-                    },
-                  ),
+                  btnGenratereport(),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15, 15, 15, 7),
                     child: Text(
@@ -192,5 +193,38 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
         ],
       ),
     ));
+  }
+
+  Widget btnGenratereport() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(7)),
+          color: AppColors.APP_HEADER_BLUE,
+        ),
+        child: InkWell(
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return CustomDialogBox(
+                    title: "Custom Dialog Demo",
+                    descriptions:
+                        "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
+                    text: "Yes",
+                  );
+                });
+          },
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 27, vertical: 5),
+            child: Text(
+              "GENERATE REPORT",
+              style: TextStyle(color: Colors.white, fontFamily: "Roboto"),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

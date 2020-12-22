@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
-import 'package:sahelp/customwidget/DetailItemWidget.dart'; 
+import 'package:sahelp/customwidget/DetailItemWidget.dart';
 
 class DealDetails extends StatefulWidget {
   static const String routeName = '/dealdetails';
@@ -14,7 +14,6 @@ class _DealDetailsState extends State<DealDetails> {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
-   
       body: Column(
         children: [
           Center(
@@ -52,46 +51,44 @@ class _DealDetailsState extends State<DealDetails> {
                   Padding(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                    child: Expanded(
-                      child: Column(children: <Widget>[
-                        DetailItemWidget(
-                          heading: "Account Status",
-                          value: "Open",
-                        ),
-                        DetailItemWidget(
-                          heading: "Vehicle Description",
-                          value: "TOYOTA QUANTUM SESFIKLE 1...",
-                        ),
-                        DetailItemWidget(
-                          heading: "Payment Type",
-                          value: "CASH",
-                        ),
-                        DetailItemWidget(
-                          heading: "Next Instalment Date",
-                          value: "01 January 2021",
-                        ),
-                        DetailItemWidget(
-                          heading: "Monthly Instalment",
-                          value: "R31 889.99",
-                        ),
-                        DetailItemWidget(
-                          heading: "Instalment remaining",
-                          value: "14",
-                        ),
-                        DetailItemWidget(
-                          heading: "Interest Rate",
-                          value: "24.5%",
-                        ),
-                        DetailItemWidget(
-                          heading: "Deal Inception Date",
-                          value: "03 November 2015",
-                        ),
-                        DetailItemWidget(
-                          heading: "Deal Expiry Date",
-                          value: "03 February 2015",
-                        ),
-                      ]),
-                    ),
+                    child: Column(children: <Widget>[
+                      DetailItemWidget(
+                        heading: "Account Status",
+                        value: "Open",
+                      ),
+                      DetailItemWidget(
+                        heading: "Vehicle Description",
+                        value: "TOYOTA QUANTUM SESFIKLE 1...",
+                      ),
+                      DetailItemWidget(
+                        heading: "Payment Type",
+                        value: "CASH",
+                      ),
+                      DetailItemWidget(
+                        heading: "Next Instalment Date",
+                        value: "01 January 2021",
+                      ),
+                      DetailItemWidget(
+                        heading: "Monthly Instalment",
+                        value: "R31 889.99",
+                      ),
+                      DetailItemWidget(
+                        heading: "Instalment remaining",
+                        value: "14",
+                      ),
+                      DetailItemWidget(
+                        heading: "Interest Rate",
+                        value: "24.5%",
+                      ),
+                      DetailItemWidget(
+                        heading: "Deal Inception Date",
+                        value: "03 November 2015",
+                      ),
+                      DetailItemWidget(
+                        heading: "Deal Expiry Date",
+                        value: "03 February 2015",
+                      ),
+                    ]),
                   ),
                 ],
               ),

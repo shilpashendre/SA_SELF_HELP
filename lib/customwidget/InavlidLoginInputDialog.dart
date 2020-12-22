@@ -4,12 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 
 class InavlidLoginInputDialog extends StatefulWidget {
-  final String title, descriptions, text;
-  final Image img;
-
-  const InavlidLoginInputDialog(
-      {Key key, this.title, this.descriptions, this.text, this.img})
-      : super(key: key);
+  
 
   @override
   _InavlidLoginInputDialogtState createState() =>

@@ -12,7 +12,7 @@ class _VehicleProfileState extends State<VehicleProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold( 
+        child: Scaffold(
       body: Column(
         children: [
           Center(
@@ -52,46 +52,44 @@ class _VehicleProfileState extends State<VehicleProfile> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 0, vertical: 15),
-                      child: Expanded(
-                        child: Column(children: <Widget>[
-                          DetailItemWidget(
-                            heading: "Account Status",
-                            value: "Open",
-                          ),
-                          DetailItemWidget(
-                            heading: "Vehicle Description",
-                            value: "TOYOTA QUANTUM SESFIKLE 1...",
-                          ),
-                          DetailItemWidget(
-                            heading: "Payment Type",
-                            value: "CASH",
-                          ),
-                          DetailItemWidget(
-                            heading: "Next Instalment Date",
-                            value: "01 January 2021",
-                          ),
-                          DetailItemWidget(
-                            heading: "Monthly Instalment",
-                            value: "R31 889.99",
-                          ),
-                          DetailItemWidget(
-                            heading: "Instalment remaining",
-                            value: "14",
-                          ),
-                          DetailItemWidget(
-                            heading: "Interest Rate",
-                            value: "24.5%",
-                          ),
-                          DetailItemWidget(
-                            heading: "Deal Inception Date",
-                            value: "03 November 2015",
-                          ),
-                          DetailItemWidget(
-                            heading: "Deal Expiry Date",
-                            value: "03 February 2015",
-                          ),
-                        ]),
-                      ),
+                      child: Column(children: <Widget>[
+                        DetailItemWidget(
+                          heading: "Account Status",
+                          value: "Open",
+                        ),
+                        DetailItemWidget(
+                          heading: "Vehicle Description",
+                          value: "TOYOTA QUANTUM SESFIKLE 1...",
+                        ),
+                        DetailItemWidget(
+                          heading: "Payment Type",
+                          value: "CASH",
+                        ),
+                        DetailItemWidget(
+                          heading: "Next Instalment Date",
+                          value: "01 January 2021",
+                        ),
+                        DetailItemWidget(
+                          heading: "Monthly Instalment",
+                          value: "R31 889.99",
+                        ),
+                        DetailItemWidget(
+                          heading: "Instalment remaining",
+                          value: "14",
+                        ),
+                        DetailItemWidget(
+                          heading: "Interest Rate",
+                          value: "24.5%",
+                        ),
+                        DetailItemWidget(
+                          heading: "Deal Inception Date",
+                          value: "03 November 2015",
+                        ),
+                        DetailItemWidget(
+                          heading: "Deal Expiry Date",
+                          value: "03 February 2015",
+                        ),
+                      ]),
                     ),
                   ),
                 ],

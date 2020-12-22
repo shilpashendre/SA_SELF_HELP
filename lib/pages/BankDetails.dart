@@ -9,7 +9,9 @@ class BankDetails extends StatefulWidget {
 class _BankDetailsState extends State<BankDetails> {
   @override
   Widget build(BuildContext context) {
-    return   TabBarView(children: [
+    return   TabBarView(
+      
+      children: [
           BankDetailsTab(),
         ]);
        
