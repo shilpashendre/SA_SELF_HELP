@@ -13,6 +13,7 @@ class PassangerLiabilityDisc extends StatefulWidget {
 
 class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
   String dealNo = "Click To Select";
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,7 +34,6 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                 color: Colors.white,
               ),
               child: Column(
-                mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
@@ -53,8 +53,7 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 7),
-                    margin: EdgeInsetsDirectional.only(start: 1.0, end: 1.0),
+                    padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
                     width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: [
@@ -71,10 +70,17 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                               GestureDetector(
                                 onTap: () {
                                   showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) {
-                                        return DealNoDialog();
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return DealNoDialog();
+                                    },
+                                  ).then((value) {
+                                    if (value != null) {
+                                      setState(() {
+                                        dealNo = value;
                                       });
+                                    }
+                                  });
                                 },
                                 child: Container(
                                   child: Stack(children: [
@@ -127,6 +133,7 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                                           30, 0, 0, 0),
                                       child: Container(
                                           width: 125,
+                                          height: 20,
                                           child: TextField(
                                             cursorColor: Colors.black,
                                             keyboardType: TextInputType.number,
@@ -156,7 +163,6 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                               ),
                               Container(
                                 width: 100,
-                                color: AppColors.APP_RED,
                                 child: Text("Vehicle Reg No",
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
@@ -166,11 +172,9 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(100, 0, 0, 0),
-                          child: Divider(
-                            color: AppColors.DIVIDER,
-                          ),
+                        Divider(
+                          indent: 97,
+                          color: AppColors.DIVIDER,
                         ),
                         Divider(
                           color: AppColors.DIVIDER,
