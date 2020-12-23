@@ -96,7 +96,7 @@ class _CallBackDialogtState extends State<CallBackDialog> {
                         },
                         child: Padding(
                           padding:
-                              EdgeInsets.symmetric(horizontal: 17, vertical: 5),
+                              EdgeInsets.symmetric(horizontal: 17, vertical: 7),
                           child: Text(
                             "0800214790",
                             style: TextStyle(

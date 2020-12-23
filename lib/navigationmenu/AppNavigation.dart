@@ -30,12 +30,14 @@ class _AppNavigationState extends State<AppNavigation> {
       case 1:
         return new MYSAProfile();
       case 2:
+        // no class
         return new Text("Error");
       case 3:
         return new BankDetails();
       case 4:
         return new Text("Error");
       case 5:
+        // no class
         return new Text("Error");
       case 6:
         return new Balance();
@@ -46,6 +48,7 @@ class _AppNavigationState extends State<AppNavigation> {
       case 9:
         return new Text("Error");
       case 10:
+        // no class
         return new Text("Error");
       case 11:
         return new Text("Error");
@@ -56,6 +59,7 @@ class _AppNavigationState extends State<AppNavigation> {
       case 14:
         return new MileagePerVehicle();
       case 15:
+        // no class
         return new Text("Error");
       case 16:
         return new PolicyDetails();
@@ -65,7 +69,10 @@ class _AppNavigationState extends State<AppNavigation> {
         return new MyClaimStatus();
       case 19:
         return new GenerateInsuranceDoc();
+      case 20:
+        return new Text("Error");
       default:
+        // no class
         return new Text("Error");
     }
   }

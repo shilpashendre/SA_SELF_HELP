@@ -26,9 +26,6 @@ class _RequestCartTrackState extends State<RequestCartTrack> {
         date.toString().substring(5, 7) +
         "/" +
         date.toString().substring(0, 3);
-
-    print(date);
-    print(currentDate);
   }
 
   @override
@@ -197,7 +194,6 @@ class _RequestCartTrackState extends State<RequestCartTrack> {
                                       height: 20,
                                       child: TextField(
                                         style: TextStyle(
-                                          
                                             color: AppColors.APP_MENU_ICON,
                                             fontSize: 13),
                                         cursorColor: Colors.black,
@@ -210,7 +206,6 @@ class _RequestCartTrackState extends State<RequestCartTrack> {
                                                   color:
                                                       AppColors.APP_MENU_ICON)),
                                           focusedBorder: UnderlineInputBorder(
-                                            
                                             borderSide: BorderSide(
                                                 color: AppColors.APP_MENU_ICON),
                                           ),
