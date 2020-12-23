@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/constants/device_helper.dart';
-import 'package:sahelp/dialogs/CustomDialogBox.dart';
 import 'package:sahelp/dialogs/DealNoDialog.dart';
+import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
-class PassangerLiabilityDisc extends StatefulWidget {
-  final String strNote =
-      "*Any changes made to the policy within past 24 hours will not be reflected in your generated insurance document";
+class RequestCartTrack extends StatefulWidget {
   @override
-  _PassangerLiabilityDiscState createState() => _PassangerLiabilityDiscState();
+  State<StatefulWidget> createState() {
+    return _RequestCartTrackState();
+  }
 }
 
-class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
+class _RequestCartTrackState extends State<RequestCartTrack> {
   String dealNo = "Click To Select";
+  String saIDNo = "756125555850";
+  DateTime now = new DateTime.now();
+  String currentDate;
+
+  @override
+  void initState() {
+    super.initState();
+    DateTime date = new DateTime(now.year, now.month, now.day);
+    currentDate = date.toString().substring(8, 10) +
+        "/" +
+        date.toString().substring(5, 7) +
+        "/" +
+        date.toString().substring(0, 3);
+
+    print(date);
+    print(currentDate);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +40,7 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
         children: [
           Center(
             child: Container(
-              width: DeviceHelper.fullWidth / 1.1,
+              width: MediaQuery.of(context).size.width / 1.1,
               decoration: BoxDecoration(
                 boxShadow: <BoxShadow>[
                   BoxShadow(
@@ -36,27 +53,63 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    width: DeviceHelper.fullWidth,
-                    decoration:
-                        BoxDecoration(color: AppColors.APP_HEADER_BG_GREY),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Passanger Liability Disc",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: AppColors.APP_HEADER_BLUE,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  HeaderTabInfo(
+                      txtColor: AppColors.APP_HEADER_BLUE,
+                      text: "MR LAWRENCE THABATHILLE WEM",
+                      isBold: true),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
-                    width: DeviceHelper.fullWidth,
+                    width: MediaQuery.of(context).size.width,
                     child: Column(
                       children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Image.asset(
+                                  "assets/images/ic_name.png",
+                                  height: DeviceHelper.deviceSize.width * 0.04,
+                                  width: DeviceHelper.deviceSize.width * 0.04,
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  child: Stack(children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          20, 0, 0, 0),
+                                      child: Text(
+                                        saIDNo,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 13, color: Colors.black),
+                                      ),
+                                    ),
+                                  ]),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 10),
+                                  child: Text("SA ID No",
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          color: AppColors.DIVIDER)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Divider(
+                          indent: 70,
+                          color: AppColors.DIVIDER,
+                        ),
                         Container(
                           width: MediaQuery.of(context).size.width,
                           child: Row(
@@ -143,26 +196,29 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                                       width: 125,
                                       height: 20,
                                       child: TextField(
+                                        style: TextStyle(
+                                          
+                                            color: AppColors.APP_MENU_ICON,
+                                            fontSize: 13),
                                         cursorColor: Colors.black,
                                         keyboardType: TextInputType.number,
+                                        maxLength: 13,
                                         decoration: InputDecoration(
-                                            isDense: true,
-                                            enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    width: 0.5,
-                                                    color: AppColors
-                                                        .APP_MENU_ICON)),
-                                            focusedBorder: UnderlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
+                                          counterText: "",
+                                          enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color:
-                                                      AppColors.APP_MENU_ICON),
-                                            ),
-                                            hintText: "Enter Registration",
-                                            hintStyle: TextStyle(
-                                                color: AppColors.APP_MENU_ICON,
-                                                fontSize: 13)),
+                                                      AppColors.APP_MENU_ICON)),
+                                          focusedBorder: UnderlineInputBorder(
+                                            
+                                            borderSide: BorderSide(
+                                                color: AppColors.APP_MENU_ICON),
+                                          ),
+                                          hintText: "Enter Registration",
+                                          hintStyle: TextStyle(
+                                              color: AppColors.APP_MENU_ICON,
+                                              fontSize: 13),
+                                        ),
                                       ),
                                     ),
                                   ]),
@@ -186,19 +242,60 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                           indent: 70,
                           color: AppColors.DIVIDER,
                         ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  child: Image.asset(
+                                    "assets/images/ic_date_selected.png",
+                                    height:
+                                        DeviceHelper.deviceSize.width * 0.04,
+                                    width: DeviceHelper.deviceSize.width * 0.04,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  margin: EdgeInsets.only(left: 20),
+                                  child: Stack(children: [
+                                    Text(
+                                      currentDate,
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          color: AppColors.APP_MENU_ICON),
+                                    ),
+                                  ]),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  margin: EdgeInsets.only(right: 10),
+                                  child: Text("Date of Request",
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(
+                                          fontSize: 13,
+                                          color: AppColors.DIVIDER)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                         Divider(
+                          indent: 70,
                           color: AppColors.DIVIDER,
                         ),
                       ],
                     ),
                   ),
                   btnGenratereport(),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 15, 15, 7),
-                    child: Text(
-                      widget.strNote,
-                      style: TextStyle(color: AppColors.BTN_GREEN),
-                    ),
+                  SizedBox(
+                    height: DeviceHelper.dh15,
                   )
                 ],
               ),
@@ -211,7 +308,7 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
 
   Widget btnGenratereport() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(7)),
@@ -219,21 +316,16 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
         ),
         child: InkWell(
           onTap: () {
-            showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return CustomDialogBox(
-                    title: "Custom Dialog Demo",
-                    descriptions:
-                        "Hii all this is a custom dialog in flutter and  you will be use in your flutter applications",
-                    text: "Yes",
-                  );
-                });
+            // showDialog(
+            //     context: context,
+            //     builder: (BuildContext context) {
+            //       return CustomDialogBox();
+            //     });
           },
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 27, vertical: 5),
             child: Text(
-              "GENERATE REPORT",
+              "REQUEST DEVICE",
               style: TextStyle(color: Colors.white, fontFamily: "Roboto"),
             ),
           ),

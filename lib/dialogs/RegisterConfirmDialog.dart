@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/navigationmenu/AppNavigation.dart';
 
 class RegisterConfirmDialog extends StatefulWidget {
@@ -81,7 +82,7 @@ class _RegisterConfirmDialogState extends State<RegisterConfirmDialog> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Container(
-                width: MediaQuery.of(context).size.width,
+                width: DeviceHelper.fullWidth,
                 height: 60,
                 color: AppColors.PRIMARY_COLOR,
                 child: Row(
@@ -107,7 +108,7 @@ class _RegisterConfirmDialogState extends State<RegisterConfirmDialog> {
                 height: 15,
               ),
               Container(
-                width: MediaQuery.of(context).size.width,
+                width: DeviceHelper.fullWidth,
                 height: 400,
                 child: Scrollbar(
                   isAlwaysShown: true,

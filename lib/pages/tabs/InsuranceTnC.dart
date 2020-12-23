@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import "package:sahelp/customwidget/ButtonComponent.dart";
-import "package:sahelp/customwidget/CustomDialogBox.dart";
+import 'package:sahelp/dialogs/CustomDialogBox.dart';
 
 class InsuranceTnC extends StatefulWidget {
   @override

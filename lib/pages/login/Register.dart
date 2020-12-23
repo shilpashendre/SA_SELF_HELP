@@ -3,7 +3,7 @@ import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/constants/Validations.dart';
 import "package:sahelp/customwidget/InputText.dart";
 import "package:sahelp/customwidget/ButtonComponent.dart";
-import "package:sahelp/customwidget/RegisterConfirmDialog.dart";
+import 'package:sahelp/dialogs/RegisterConfirmDialog.dart';
 
 class Register extends StatefulWidget {
   static const String routeName = '/register';
