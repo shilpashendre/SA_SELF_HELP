@@ -53,27 +53,27 @@ class _PolicyDetailsState extends State<PolicyDetails> {
                         const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                     child: Column(children: <Widget>[
                       DetailItemWidget(
-                        heading: "Policy Number",
+                        title: "Policy Number",
                         value: "SAT71619",
                       ),
                       DetailItemWidget(
-                        heading: "Product",
+                        title: "Product",
                         value: "Vehicle Owner Protection Pl...",
                       ),
                       DetailItemWidget(
-                        heading: "Broker Name",
+                        title: "Broker Name",
                         value: "SA Taxi Product (Pty) Ltd",
                       ),
                       DetailItemWidget(
-                        heading: "Motor Insurer Name",
+                        title: "Motor Insurer Name",
                         value: "Guardrisk Insurance Company",
                       ),
                       DetailItemWidget(
-                        heading: "Start Date",
+                        title: "Start Date",
                         value: "01 September 2015",
                       ),
                       DetailItemWidget(
-                        heading: "Total Premium",
+                        title: "Total Premium",
                         value: "R0.00",
                       ),
                       Padding(

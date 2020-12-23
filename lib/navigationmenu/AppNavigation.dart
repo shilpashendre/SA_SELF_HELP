@@ -10,6 +10,7 @@ import 'package:sahelp/pages/MileagePerVehicle.dart';
 import 'package:sahelp/pages/MyClaimStatus.dart';
 import 'package:sahelp/pages/PolicyDetails.dart';
 import 'package:sahelp/pages/MySAProfle.dart';
+import 'package:sahelp/pages/arrearsStmt.dart';
 import 'package:sahelp/pages/generateInsuranceDoc.dart';
 
 class AppNavigation extends StatefulWidget {
@@ -39,7 +40,7 @@ class _AppNavigationState extends State<AppNavigation> {
       case 7:
         return new DealDetails();
       case 8:
-        return new Text("Error");
+        return new ArrearsStmt();
       case 9:
         return new Text("Error");
       case 10:
@@ -135,12 +136,16 @@ class _AppNavigationState extends State<AppNavigation> {
         routeName: "/dealdetails",
         headerIcon: "ic_email_white.png"),
     MenuData(
-        isTabPresent: false,
-        itemName: "Arrears Statement",
-        isIconNeeded: true,
-        itemIcon: "assets/images/ic_arrears.png",
-        isSubtitle: false,
-        headerIcon: "ic_email_white.png"),
+      isTabPresent: true,
+      itemName: "Arrears Statement",
+      isIconNeeded: true,
+      itemIcon: "assets/images/ic_arrears.png",
+      isSubtitle: false,
+      headerIcon: "ic_email_white.png",
+      tabData: [
+        TabDeatils("   063365:065978  "),
+      ],
+    ),
     MenuData(
         itemName: "Generate Statement",
         isTabPresent: false,

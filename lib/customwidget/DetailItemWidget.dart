@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 
 class DetailItemWidget extends StatelessWidget {
-  final String heading;
+  final String title;
   final String value;
 
-  DetailItemWidget({this.heading, this.value});
+  DetailItemWidget({this.title, this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,14 @@ class DetailItemWidget extends StatelessWidget {
         children: <Widget>[
           Expanded(
               child: Text(
-            heading,
-            style: TextStyle(color: AppColors.APP_MENU_TEXT, fontSize: 12),
+            title,
+            style: TextStyle(
+                color: Colors.black, fontSize: 13, fontWeight: FontWeight.w500),
           )),
           Expanded(
               child: Text(value,
                   style: TextStyle(
-                      color: AppColors.APP_MENU_SUBHEADER_TEXT, fontSize: 12)))
+                      color: AppColors.APP_MENU_SUBHEADER_TEXT, fontSize: 13)))
         ],
       ),
     );

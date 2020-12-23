@@ -62,10 +62,14 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Image.asset(
-                                "assets/images/ic_deal_no.png",
-                                height: DeviceHelper.deviceSize.width * 0.04,
-                                width: DeviceHelper.deviceSize.width * 0.04,
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(18.0, 0, 0, 0),
+                                child: Image.asset(
+                                  "assets/images/ic_deal_no.png",
+                                  height: DeviceHelper.deviceSize.width * 0.04,
+                                  width: DeviceHelper.deviceSize.width * 0.04,
+                                ),
                               ),
                               GestureDetector(
                                 onTap: () {
@@ -83,35 +87,40 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                                   });
                                 },
                                 child: Container(
-                                  child: Stack(children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.fromLTRB(7, 0, 0, 0),
-                                      child: Text(
-                                        dealNo,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            color: AppColors.DIVIDER),
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(35.0,0,0,0),
+                                    child: Stack(children: [
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.fromLTRB(7, 0, 0, 0),
+                                        child: Text(
+                                          dealNo,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              color: AppColors.DIVIDER),
+                                        ),
                                       ),
-                                    ),
-                                    Image.asset(
-                                        "assets/images/bg_clicktoselect.png")
-                                  ]),
+                                      Image.asset(
+                                          "assets/images/bg_clicktoselect.png")
+                                    ]),
+                                  ),
                                 ),
                               ),
-                              Text("Deal No",
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(
-                                      fontSize: 13, color: AppColors.DIVIDER)),
+                              Container(
+                                width: 100,
+                                child: Text("Deal No",
+                                    textAlign: TextAlign.right,
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        color: AppColors.DIVIDER)),
+                              ),
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(100, 0, 0, 0),
-                          child: Divider(
-                            color: AppColors.DIVIDER,
-                          ),
+                        Divider(
+                          indent: 100,
+                          color: AppColors.DIVIDER,
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,

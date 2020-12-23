@@ -53,39 +53,39 @@ class _DealDetailsState extends State<DealDetails> {
                         const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                     child: Column(children: <Widget>[
                       DetailItemWidget(
-                        heading: "Account Status",
+                        title: "Account Status",
                         value: "Open",
                       ),
                       DetailItemWidget(
-                        heading: "Vehicle Description",
+                        title: "Vehicle Description",
                         value: "TOYOTA QUANTUM SESFIKLE 1...",
                       ),
                       DetailItemWidget(
-                        heading: "Payment Type",
+                        title: "Payment Type",
                         value: "CASH",
                       ),
                       DetailItemWidget(
-                        heading: "Next Instalment Date",
+                        title: "Next Instalment Date",
                         value: "01 January 2021",
                       ),
                       DetailItemWidget(
-                        heading: "Monthly Instalment",
+                        title: "Monthly Instalment",
                         value: "R31 889.99",
                       ),
                       DetailItemWidget(
-                        heading: "Instalment remaining",
+                        title: "Instalment remaining",
                         value: "14",
                       ),
                       DetailItemWidget(
-                        heading: "Interest Rate",
+                        title: "Interest Rate",
                         value: "24.5%",
                       ),
                       DetailItemWidget(
-                        heading: "Deal Inception Date",
+                        title: "Deal Inception Date",
                         value: "03 November 2015",
                       ),
                       DetailItemWidget(
-                        heading: "Deal Expiry Date",
+                        title: "Deal Expiry Date",
                         value: "03 February 2015",
                       ),
                     ]),

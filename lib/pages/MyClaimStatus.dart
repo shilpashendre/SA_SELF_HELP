@@ -52,27 +52,27 @@ class _MyClaimStatusState extends State<MyClaimStatus> {
                         const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
                     child: Column(children: <Widget>[
                       DetailItemWidget(
-                        heading: "Policy Number",
+                        title: "Policy Number",
                         value: "SAT71619",
                       ),
                       DetailItemWidget(
-                        heading: "Claim Number",
+                        title: "Claim Number",
                         value: "-",
                       ),
                       DetailItemWidget(
-                        heading: "Date Claim Reported",
+                        title: "Date Claim Reported",
                         value: "-",
                       ),
                       DetailItemWidget(
-                        heading: "Date Claim Qccurred",
+                        title: "Date Claim Qccurred",
                         value: "-",
                       ),
                       DetailItemWidget(
-                        heading: "Claim Type",
+                        title: "Claim Type",
                         value: "N/A",
                       ),
                       DetailItemWidget(
-                        heading: "Current Claim Status",
+                        title: "Current Claim Status",
                         value: "R0.00",
                       ),
                     ]),
