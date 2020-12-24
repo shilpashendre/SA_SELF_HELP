@@ -12,6 +12,7 @@ import 'package:sahelp/pages/MyClaimStatus.dart';
 import 'package:sahelp/pages/PolicyDetails.dart';
 import 'package:sahelp/pages/MySAProfle.dart';
 import 'package:sahelp/pages/RequestCarTrack.dart';
+import 'package:sahelp/pages/RequestSettlementQuote.dart';
 import 'package:sahelp/pages/arrearsStmt.dart';
 import 'package:sahelp/pages/generateInsuranceDoc.dart';
 
@@ -35,7 +36,7 @@ class _AppNavigationState extends State<AppNavigation> {
       case 3:
         return new BankDetails();
       case 4:
-        return new Text("Error");
+        return new RequestSettlementQuote();
       case 5:
         // no class
         return new Text("Error");
