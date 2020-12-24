@@ -3,6 +3,7 @@ import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 import 'package:sahelp/dialogs/UpdateProfileDialog.dart';
+import 'package:sahelp/dialogs/UpdateProfileMSGDialog.dart';
 
 class PersonalDetails extends StatefulWidget {
   @override
@@ -179,6 +180,27 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                 context: context,
                 builder: (BuildContext context) {
                   return UpdateProfileDialog();
+                }).then((value) => {
+                  if (value == "fail")
+                    {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return UpdateProfileMSGDialog(
+                                dialogMsg:
+                                    "Please Select personal information which you want to update");
+                          })
+                    }
+                  else
+                    {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return UpdateProfileMSGDialog(
+                                dialogMsg:
+                                    "Your request submitted successfully.");
+                          })
+                    }
                 });
           },
           child: Padding(

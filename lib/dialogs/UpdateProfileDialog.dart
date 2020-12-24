@@ -8,10 +8,11 @@ class UpdateProfileDialog extends StatefulWidget {
 }
 
 class _UpdateProfileDialogState extends State<UpdateProfileDialog> {
-  String radioLabel = "063365:065978";
-  String strSelected = "strUnselected";
-  bool valuefirst = false;
-  bool valuesecond = false;
+  bool isCNChecked = false;
+  bool isRAChecked = false;
+  bool isPostChecked = false;
+  bool isEmailChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -68,7 +69,7 @@ class _UpdateProfileDialogState extends State<UpdateProfileDialog> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Text(
                     "Select below personal details which you want to update",
                     style: TextStyle(color: AppColors.APP_MENU_SUBHEADER_TEXT),
@@ -76,75 +77,212 @@ class _UpdateProfileDialogState extends State<UpdateProfileDialog> {
                 ),
                 Column(
                   children: [
-                    Row(
-                      children: [
-                        // Checkbox(
-                        //   checkColor: AppColors.APP_MENU_SUBHEADER_TEXT,
-                        //   activeColor: Colors.white,
-                        //   value: this.valuefirst,
-                        //   onChanged: (bool value) {
-                        //     setState(() {
-                        //       this.valuefirst = value;
-                        //     });
-                        //   },
-                        // ),
-                        CheckboxListTile(
-                          title: Text("title text"),
-                          value: this.valuefirst,
-                          onChanged: (newValue) {
-                            setState(() {
-                              valuefirst = newValue;
-                            });
-                          },
-                          controlAffinity: ListTileControlAffinity
-                              .leading, //  <-- leading Checkbox
-                        ), 
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.all(7.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                    width: 0.5),
+                              ),
+                              width: 15,
+                              height: 15,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: AppColors.DIVIDER,
+                                ),
+                                child: Checkbox(
+                                  checkColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                  activeColor: Colors.transparent,
+                                  value: this.isCNChecked,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      isCNChecked = value;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Text("Contact Number"),
+                          ),
+                        ],
+                      ),
                     ),
-                    Divider(
-                      color: AppColors.DIVIDER,
-                    )
+                    customDivider(),
                   ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(7.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                    width: 0.5),
+                              ),
+                              width: 15,
+                              height: 15,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: AppColors.DIVIDER,
+                                ),
+                                child: Checkbox(
+                                  checkColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                  activeColor: Colors.transparent,
+                                  value: this.isRAChecked,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      isRAChecked = value;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Text("Residential Address"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    customDivider(),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(7.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                    width: 0.5),
+                              ),
+                              width: 15,
+                              height: 15,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: AppColors.DIVIDER,
+                                ),
+                                child: Checkbox(
+                                  checkColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                  activeColor: Colors.transparent,
+                                  value: this.isPostChecked,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      isPostChecked = value;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Text("Post Address"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    customDivider(),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(7.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                    width: 0.5),
+                              ),
+                              width: 15,
+                              height: 15,
+                              child: Theme(
+                                data: ThemeData(
+                                  unselectedWidgetColor: AppColors.DIVIDER,
+                                ),
+                                child: Checkbox(
+                                  checkColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                  activeColor: Colors.transparent,
+                                  value: this.isEmailChecked,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      isEmailChecked = value;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20.0),
+                            child: Text("Email"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    customDivider(),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: FlatButton(
+                      color: AppColors.PRIMARY_COLOR,
+                      onPressed: () {
+                        var jsonData =
+                            '{"conatct":true,"residential":true,"post":true,"email":true,"success":true}';
+                        if (this.isCNChecked ||
+                            this.isRAChecked ||
+                            isPostChecked ||
+                            this.isEmailChecked) {
+                          Navigator.pop(context, jsonData);
+                        } else {
+                          Navigator.pop(context, "fail");
+                        }
+                      },
+                      child: Text(
+                        "SUBMIT",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                        ),
+                      )),
                 ),
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                      border: Border(
-                          top: BorderSide(
-                              width: 1, color: AppColors.APP_GREY_DIVIDER))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 5),
-                        child: FlatButton(
-                            color: AppColors.PRIMARY_COLOR,
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text(
-                              "SUBMIT",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                              ),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
         ],
       ),
+    );
+  }
+
+  Widget customDivider() {
+    return Divider(
+      indent: 20,
+      color: AppColors.DIVIDER,
     );
   }
 }
