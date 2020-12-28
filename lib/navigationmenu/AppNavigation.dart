@@ -6,6 +6,7 @@ import 'package:sahelp/pages/Balance.dart';
 import 'package:sahelp/pages/BankDetails.dart';
 import 'package:sahelp/pages/ClaimCallBack.dart';
 import 'package:sahelp/pages/DealDetails.dart';
+import 'package:sahelp/pages/GenerateStmt.dart';
 import 'package:sahelp/pages/Home.dart';
 import 'package:sahelp/pages/MileagePerVehicle.dart';
 import 'package:sahelp/pages/MyClaimStatus.dart';
@@ -13,6 +14,7 @@ import 'package:sahelp/pages/PolicyDetails.dart';
 import 'package:sahelp/pages/MySAProfle.dart';
 import 'package:sahelp/pages/RequestCarTrack.dart';
 import 'package:sahelp/pages/RequestSettlementQuote.dart';
+import 'package:sahelp/pages/SATaxiDetails.dart';
 import 'package:sahelp/pages/arrearsStmt.dart';
 import 'package:sahelp/pages/generateInsuranceDoc.dart';
 
@@ -47,7 +49,7 @@ class _AppNavigationState extends State<AppNavigation> {
       case 8:
         return new ArrearsStmt();
       case 9:
-        return new Text("Error");
+        return new GenerateStmt();
       case 10:
         // no class
         return new Text("Error");
@@ -71,7 +73,7 @@ class _AppNavigationState extends State<AppNavigation> {
       case 19:
         return new GenerateInsuranceDoc();
       case 20:
-        return new Text("Error");
+        return SATaxiDetails();
       default:
         // no class
         return new Text("Error");
@@ -230,7 +232,18 @@ class _AppNavigationState extends State<AppNavigation> {
         ],
         headerIcon: "ic_email_white.png"),
     MenuData(
-        itemName: "SA Taxi Details", isTabPresent: false, isSubtitle: true),
+        itemName: "SA Taxi Details",
+        isTabPresent: true,
+        isSubtitle: false,
+        isIconNeeded: false,
+        itemIcon: "assets/images/ic_generate_statement.png",
+        tabData: [
+          TabDeatils("Announcements"),
+          TabDeatils("Insurance Policy"),
+          TabDeatils("Contact Us"),
+          TabDeatils("Legal Disclaimer"),
+        ],
+        headerIcon: "ic_email_white.png"),
   ];
 
   @override
@@ -356,6 +369,9 @@ class _AppNavigationState extends State<AppNavigation> {
                     );
                   } else {
                     return ListTile(
+                      tileColor: menu.value.itemName == "SA Taxi Details"
+                          ? AppColors.APP_HEADER_BG_GREY
+                          : null,
                       title: Row(
                         children: <Widget>[
                           Image.asset(

@@ -4,6 +4,7 @@ import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 import 'package:sahelp/dialogs/UpdateProfileDialog.dart';
 import 'package:sahelp/dialogs/UpdateProfileMSGDialog.dart';
+import "package:sahelp/customwidget/ProfileRowWidget.dart";
 
 class PersonalDetails extends StatefulWidget {
   @override
@@ -49,36 +50,53 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                       txtColor: AppColors.APP_HEADER_BLUE,
                       text: "Mr Lawrence Thabathille Wen",
                       isBold: true),
-                  description("ic_name.png", "12 June 1975", "Date of Birth"),
+                  ProfileRowWidget(
+                      image: "ic_name.png",
+                      txtValue: "12 June 1975",
+                      label: "Date of Birth"),
                   divider(true),
-                  description("ic_sex.png", "Male", "Gender"),
+                  ProfileRowWidget(
+                      image: "ic_sex.png", txtValue: "Male", label: "Gender"),
                   divider(true),
-                  description("email_profile.png", "-", "Email"),
+                  ProfileRowWidget(
+                      image: "email_profile.png",
+                      txtValue: "-",
+                      label: "Email"),
                   divider(false),
                   HeaderTabInfo(
                       txtColor: AppColors.APP_HEADER_BLUE,
                       text: "Primary Contact",
                       isBold: true),
-                  description(
-                      "ic_personal_no.png", "+27 60 560 7288", "Mobile"),
+                  ProfileRowWidget(
+                      image: "ic_personal_no.png",
+                      txtValue: "+27 60 560 7288",
+                      label: "Mobile"),
                   divider(true),
-                  description("tel_number.png", "(021) 949 6581", "Home"),
+                  ProfileRowWidget(
+                      image: "tel_number.png",
+                      txtValue: "(021) 949 6581",
+                      label: "Home"),
                   divider(true),
-                  description("ic_work_no2.png", "(021) 949 6581", "Work"),
+                  ProfileRowWidget(
+                      image: "ic_work_no2.png",
+                      txtValue: "(021) 949 6581",
+                      label: "Work"),
                   divider(false),
                   HeaderTabInfo(
                       txtColor: AppColors.APP_HEADER_BLUE,
                       text: "Primary Address",
                       isBold: true),
-                  description(
-                      "address.png",
-                      "42 THAFENI STREET, MFULENI EXT 4, MFULENI EXT 4, 7",
-                      "Mobile"),
+                  ProfileRowWidget(
+                      image: "address.png",
+                      txtValue:
+                          "42 THAFENI STREET, MFULENI EXT 4, MFULENI EXT 4, 7",
+                      label: "Mobile"),
                   divider(true),
-                  description(
-                      "ic_postal_address2.png",
-                      "42 THAFENI STREET, MFULENI EXT 4, MFULENI EXT 4, 7",
-                      "Work"),
+                  ProfileRowWidget(
+                      image: "ic_postal_address2.png",
+                      txtValue:
+                          "42 THAFENI STREET, MFULENI EXT 4, MFULENI EXT 4, 7",
+                      label: "Work"),
                   Divider(
                     indent: 15,
                     endIndent: 15,
@@ -108,61 +126,6 @@ class _PersonalDetailsState extends State<PersonalDetails> {
       indent: 70,
       endIndent: 10,
       color: isColor ? AppColors.DIVIDER : Colors.white,
-    );
-  }
-
-  Widget description(image, txtValue, label) {
-    return Container(
-      padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
-      width: DeviceHelper.fullWidth,
-      child: Column(
-        children: [
-          Container(
-            width: DeviceHelper.fullWidth,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Image.asset(
-                    "assets/images/" + image,
-                    height: DeviceHelper.deviceSize.width * 0.04,
-                    width: DeviceHelper.deviceSize.width * 0.04,
-                  ),
-                ),
-                Expanded(
-                  flex: 4,
-                  child: Container(
-                    width: DeviceHelper.fullWidth,
-                    child: Stack(children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                        child: Text(
-                          txtValue,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 13,
-                              color: AppColors.APP_MENU_SUBHEADER_TEXT),
-                        ),
-                      ),
-                    ]),
-                  ),
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    margin: EdgeInsets.only(right: 10),
-                    child: Text(label,
-                        textAlign: TextAlign.right,
-                        style:
-                            TextStyle(fontSize: 13, color: AppColors.DIVIDER)),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 
