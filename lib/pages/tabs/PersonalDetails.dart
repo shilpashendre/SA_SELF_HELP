@@ -151,7 +151,8 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                           builder: (BuildContext context) {
                             return UpdateProfileMSGDialog(
                                 dialogMsg:
-                                    "Please Select personal information which you want to update");
+                                    "Please Select personal information which you want to update",
+                                showExit: false);
                           })
                     }
                   else
@@ -161,7 +162,8 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                           builder: (BuildContext context) {
                             return UpdateProfileMSGDialog(
                                 dialogMsg:
-                                    "Your request submitted successfully.");
+                                    "Your request submitted successfully.",
+                                showExit: false);
                           })
                     }
                 });

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,9 @@ import 'package:sahelp/constants/ColorConstants.dart';
 
 class UpdateProfileMSGDialog extends StatefulWidget {
   final String dialogMsg;
+  final bool showExit;
 
-  UpdateProfileMSGDialog({this.dialogMsg});
+  UpdateProfileMSGDialog({this.dialogMsg, this.showExit});
 
   @override
   _InavlidLoginInputDialogtState createState() =>
@@ -14,7 +16,6 @@ class UpdateProfileMSGDialog extends StatefulWidget {
 }
 
 class _InavlidLoginInputDialogtState extends State<UpdateProfileMSGDialog> {
-   
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -97,15 +98,44 @@ class _InavlidLoginInputDialogtState extends State<UpdateProfileMSGDialog> {
                               top: BorderSide(
                                   width: 1,
                                   color: AppColors.APP_GREY_DIVIDER))),
-                      child: FlatButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text(
-                            "OK",
-                            style: TextStyle(
-                                fontSize: 14, color: AppColors.PRIMARY_COLOR),
-                          )),
+                      child: widget.showExit
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                FlatButton(
+                                    onPressed: () {
+                                      exit(0);
+                                    },
+                                    child: Text(
+                                      "YES",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: AppColors.PRIMARY_COLOR,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                                FlatButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Text(
+                                      "NO",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: AppColors.PRIMARY_COLOR,
+                                          fontWeight: FontWeight.bold),
+                                    )),
+                              ],
+                            )
+                          : FlatButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                "OK",
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: AppColors.PRIMARY_COLOR),
+                              )),
                     ),
                   ),
                 ],

@@ -105,7 +105,7 @@ class _PolicyDetailsState extends State<PolicyDetails> {
                                     builder: (BuildContext context) {
                                       return UpdateProfileMSGDialog(
                                           dialogMsg:
-                                              "Your request submitted successfully.");
+                                              "Your request submitted successfully.",showExit: false,);
                                     });
                               },
                             )

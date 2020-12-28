@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/customwidget/MenuData.dart';
 import 'package:sahelp/customwidget/HeaderIconButton.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/dialogs/UpdateProfileMSGDialog.dart';
 import 'package:sahelp/pages/Balance.dart';
 import 'package:sahelp/pages/BankDetails.dart';
 import 'package:sahelp/pages/ClaimCallBack.dart';
@@ -245,162 +246,175 @@ class _AppNavigationState extends State<AppNavigation> {
         ],
         headerIcon: "ic_email_white.png"),
   ];
+  Future<bool> _onWillPop() {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return UpdateProfileMSGDialog(
+            dialogMsg: "Are you sure, you want to exit?",
+            showExit: true,
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: DefaultTabController(
-        length: listmenu[selectedDrawerIndex].isTabPresent
-            ? listmenu[selectedDrawerIndex].tabData.length
-            : 0,
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          appBar: AppBar(
-            backgroundColor: AppColors.PRIMARY_COLOR,
-            title: Text(
-              listmenu[selectedDrawerIndex].itemName.toUpperCase(),
-              style:
-                  TextStyle(fontWeight: FontWeight.w500, fontFamily: "Roboto"),
+    return WillPopScope(
+      onWillPop: _onWillPop,
+      child: SafeArea(
+        child: DefaultTabController(
+          length: listmenu[selectedDrawerIndex].isTabPresent
+              ? listmenu[selectedDrawerIndex].tabData.length
+              : 0,
+          child: Scaffold(
+            backgroundColor: Colors.white,
+            appBar: AppBar(
+              backgroundColor: AppColors.PRIMARY_COLOR,
+              title: Text(
+                listmenu[selectedDrawerIndex].itemName.toUpperCase(),
+                style: TextStyle(
+                    fontWeight: FontWeight.w500, fontFamily: "Roboto"),
+              ),
+              bottom: listmenu[selectedDrawerIndex].isTabPresent
+                  ? TabBar(
+                      tabs: listmenu[selectedDrawerIndex]
+                          .tabData
+                          .asMap()
+                          .entries
+                          .map((tabData) => Tab(
+                                text: tabData.value.tabTitle,
+                              ))
+                          .toList(),
+                      indicatorColor: Colors.white,
+                      indicatorSize: TabBarIndicatorSize.label,
+                      indicatorWeight: 3.0,
+                      isScrollable: true,
+                      // indicatorPadding:
+                      //     EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                    )
+                  : null,
+              actions: <Widget>[
+                listmenu[selectedDrawerIndex].isIconNeeded
+                    ? HeaderIconButton(
+                        iconName: listmenu[selectedDrawerIndex].headerIcon)
+                    : Text("")
+              ],
             ),
-            bottom: listmenu[selectedDrawerIndex].isTabPresent
-                ? TabBar(
-                    tabs: listmenu[selectedDrawerIndex]
-                        .tabData
-                        .asMap()
-                        .entries
-                        .map((tabData) => Tab(
-                              text: tabData.value.tabTitle,
-                            ))
-                        .toList(),
-                    indicatorColor: Colors.white,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    indicatorWeight: 3.0,
-                    isScrollable: true,
-                    // indicatorPadding:
-                    //     EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                  )
-                : null,
-            actions: <Widget>[
-              listmenu[selectedDrawerIndex].isIconNeeded
-                  ? HeaderIconButton(
-                      iconName: listmenu[selectedDrawerIndex].headerIcon)
-                  : Text("")
-            ],
-          ),
-          drawer: Drawer(
-            child: ListView(padding: EdgeInsets.zero, children: <Widget>[
-              DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: AppColors.PRIMARY_COLOR,
-                  ),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/images/top_user_icon.png",
+            drawer: Drawer(
+              child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+                DrawerHeader(
+                    decoration: BoxDecoration(
+                      color: AppColors.PRIMARY_COLOR,
+                    ),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    "assets/images/top_user_icon.png",
+                                  ),
                                 ),
                               ),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.fromLTRB(25, 25, 0, 0),
                               child: Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Container(
-                                    height: 10,
-                                    width: 10,
-                                    decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        image: DecorationImage(
-                                            fit: BoxFit.fill,
-                                            image: AssetImage(
-                                                "assets/images/ic_name.png")))),
-                              ),
-                            )),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Mr Lawrence Thabathile Wem",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "063365",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/logout_icon.png",
-                                    height: 18,
-                                    width: 18,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        )
-                      ])),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: listmenu.asMap().entries.map((menu) {
-                  if (menu.value.isSubtitle) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      color: AppColors.APP_HEADER_BG_GREY,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(menu.value.itemName,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: AppColors.APP_MENU_SUBHEADER_TEXT)),
-                      ),
-                    );
-                  } else {
-                    return ListTile(
-                      tileColor: menu.value.itemName == "SA Taxi Details"
-                          ? AppColors.APP_HEADER_BG_GREY
-                          : null,
-                      title: Row(
-                        children: <Widget>[
-                          Image.asset(
-                            menu.value.itemIcon,
-                            height: 25.0,
-                            width: 25.0,
-                            color: AppColors.APP_MENU_ICON,
+                                padding: EdgeInsets.fromLTRB(25, 25, 0, 0),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: Container(
+                                      height: 10,
+                                      width: 10,
+                                      decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image: AssetImage(
+                                                  "assets/images/ic_name.png")))),
+                                ),
+                              )),
+                          SizedBox(
+                            height: 20,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(35.0, 0, 0, 0),
-                            child: Text(
-                              menu.value.itemName,
-                              style: TextStyle(
-                                color: AppColors.APP_MENU_TEXT,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Mr Lawrence Thabathile Wem",
+                                style: TextStyle(color: Colors.white),
                               ),
-                            ),
+                              Align(
+                                alignment: Alignment.topLeft,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "063365",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    Image.asset(
+                                      "assets/images/logout_icon.png",
+                                      height: 18,
+                                      width: 18,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
                           )
-                        ],
-                      ),
-                      onTap: () {
-                        onSelectItem(menu.key);
-                      },
-                    );
-                  }
-                }).toList(),
-              )
-            ]),
+                        ])),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: listmenu.asMap().entries.map((menu) {
+                    if (menu.value.isSubtitle) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        color: AppColors.APP_HEADER_BG_GREY,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(menu.value.itemName,
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  color: AppColors.APP_MENU_SUBHEADER_TEXT)),
+                        ),
+                      );
+                    } else {
+                      return ListTile(
+                        tileColor: menu.value.itemName == "SA Taxi Details"
+                            ? AppColors.APP_HEADER_BG_GREY
+                            : null,
+                        title: Row(
+                          children: <Widget>[
+                            Image.asset(
+                              menu.value.itemIcon,
+                              height: 25.0,
+                              width: 25.0,
+                              color: AppColors.APP_MENU_ICON,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(35.0, 0, 0, 0),
+                              child: Text(
+                                menu.value.itemName,
+                                style: TextStyle(
+                                  color: AppColors.APP_MENU_TEXT,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        onTap: () {
+                          onSelectItem(menu.key);
+                        },
+                      );
+                    }
+                  }).toList(),
+                )
+              ]),
+            ),
+            body: getDrawerItemWidget(selectedDrawerIndex),
           ),
-          body: getDrawerItemWidget(selectedDrawerIndex),
         ),
       ),
     );
