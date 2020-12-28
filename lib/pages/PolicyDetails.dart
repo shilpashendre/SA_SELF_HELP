@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/customwidget/ButtonComponent.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
+import 'package:sahelp/dialogs/UpdateProfileMSGDialog.dart';
+import 'package:sahelp/pages/PolicyDisplayTab.dart';
 
 class PolicyDetails extends StatefulWidget {
   @override
@@ -9,6 +11,10 @@ class PolicyDetails extends StatefulWidget {
 }
 
 class _PolicyDetailsState extends State<PolicyDetails> {
+  viewPolicyTabs() {
+    Navigator.popAndPushNamed(context, PolicyDisplayTab.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -88,10 +94,20 @@ class _PolicyDetailsState extends State<PolicyDetails> {
                             ButtonComponent(
                               btnLabel: "VIEW DETAILS",
                               btnColor: AppColors.PRIMARY_COLOR,
+                              onTap: viewPolicyTabs,
                             ),
                             ButtonComponent(
                               btnLabel: "GET A QUOTE",
                               btnColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                              onTap: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return UpdateProfileMSGDialog(
+                                          dialogMsg:
+                                              "Your request submitted successfully.");
+                                    });
+                              },
                             )
                           ])
                     ]),
