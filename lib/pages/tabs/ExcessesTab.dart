@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/customwidget/CardContainer.dart';
+import 'package:sahelp/customwidget/DetailItemWidget.dart';
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
 class ExcessesTab extends StatefulWidget {
@@ -9,33 +11,53 @@ class ExcessesTab extends StatefulWidget {
 }
 
 class _ExcessesTabState extends State<ExcessesTab> {
-  Widget policyDetailrow(String title, String price, String value) {
+  Widget content(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 7),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-              flex: 2,
-              child: Text(
-                title,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500),
-              )),
-          Expanded(
-              flex: 1,
-              child: Text(
-                price,
-                style: TextStyle(color: AppColors.APP_MENU_TEXT, fontSize: 12),
-              )),
-          Expanded(
-              flex: 1,
-              child: Text(value,
-                  style: TextStyle(
-                      color: AppColors.APP_MENU_SUBHEADER_TEXT, fontSize: 13)))
-        ],
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+      child: Column(children: <Widget>[
+        DetailItemWidget(
+          title: "Basic Excess",
+          price: "R5000",
+          value: "R0 when repairs ar...",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Basic excess at approve...",
+          price: "R5000",
+          value: "R124 029.09",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Extra excess if driver u...",
+          price: "R+2000",
+          value: "R+2000",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Extra excess if driver u...",
+          price: "+R2000",
+          value: "+R2000",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Windscreen",
+          price: "R1000",
+          value: "R1000",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Windscreen at approve...",
+          price: "R300",
+          value: "R300",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Windscreen",
+          price: "R1000",
+          value: "R1000",
+          showPrice: true,
+        ),
+      ]),
     );
   }
 
@@ -60,57 +82,11 @@ class _ExcessesTabState extends State<ExcessesTab> {
               ),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    decoration:
-                        BoxDecoration(color: AppColors.APP_HEADER_BG_GREY),
-                    child: HeaderTabInfo(
-                      text: "SAT71619",
-                      txtColor: AppColors.APP_HEADER_BLUE,
-                      
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
-                    child: Column(children: <Widget>[
-                      policyDetailrow(
-                        "Basic Excess",
-                        "R5000",
-                        "R0 when repairs ar...",
-                      ),
-                      policyDetailrow(
-                        "Basic excess at approve...",
-                        "R5000",
-                        "R124 029.09",
-                      ),
-                      policyDetailrow(
-                        "Extra excess if driver u...",
-                        "R+2000",
-                        "R+2000",
-                      ),
-                      policyDetailrow(
-                        "Extra excess if driver u...",
-                        "+R2000",
-                        "+R2000",
-                      ),
-                      policyDetailrow(
-                        "Windscreen",
-                        "R1000",
-                        "R1000",
-                      ),
-                      policyDetailrow(
-                        "Windscreen at approve...",
-                        "R300",
-                        "R300",
-                      ),
-                      policyDetailrow(
-                        "Windscreen",
-                        "R1000",
-                        "R1000",
-                      ),
-                    ]),
-                  ),
+                  CardContainer(
+                    headerColor: AppColors.APP_HEADER_BLUE,
+                    headerTitle: "SAT71619",
+                    widget: content(context),
+                  )
                 ],
               ),
             ),

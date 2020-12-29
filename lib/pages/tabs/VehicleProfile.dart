@@ -55,39 +55,39 @@ class _VehicleProfileState extends State<VehicleProfile> {
                       child: Column(children: <Widget>[
                         DetailItemWidget(
                           title: "Account Status",
-                          value: "Open",
+                          showPrice: false,value: "Open",
                         ),
                         DetailItemWidget(
                           title: "Vehicle Description",
-                          value: "TOYOTA QUANTUM SESFIKLE 1...",
+                          showPrice: false,value: "TOYOTA QUANTUM SESFIKLE 1...",
                         ),
                         DetailItemWidget(
                           title: "Payment Type",
-                          value: "CASH",
+                          showPrice: false,value: "CASH",
                         ),
                         DetailItemWidget(
                           title: "Next Instalment Date",
-                          value: "01 January 2021",
+                          showPrice: false,value: "01 January 2021",
                         ),
                         DetailItemWidget(
                           title: "Monthly Instalment",
-                          value: "R31 889.99",
+                          showPrice: false,value: "R31 889.99",
                         ),
                         DetailItemWidget(
                           title: "Instalment remaining",
-                          value: "14",
+                          showPrice: false,value: "14",
                         ),
                         DetailItemWidget(
                           title: "Interest Rate",
-                          value: "24.5%",
+                          showPrice: false,value: "24.5%",
                         ),
                         DetailItemWidget(
                           title: "Deal Inception Date",
-                          value: "03 November 2015",
+                          showPrice: false,value: "03 November 2015",
                         ),
                         DetailItemWidget(
                           title: "Deal Expiry Date",
-                          value: "03 February 2015",
+                          showPrice: false,value: "03 February 2015",
                         ),
                       ]),
                     ),

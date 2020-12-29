@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/Utility.dart';
 import 'package:sahelp/constants/device_helper.dart';
+import 'package:sahelp/customwidget/CardContainer.dart';
+import 'package:sahelp/customwidget/DetailItemWidget.dart';
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
 class YourCoverTab extends StatefulWidget {
@@ -10,28 +13,35 @@ class YourCoverTab extends StatefulWidget {
 }
 
 class _YourCoverTabState extends State<YourCoverTab> {
-  Widget policyDetailrow(String title, String price, String value) {
+  Widget content(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 7),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-              child: Text(
-            DeviceHelper.displayStr(title),
-            style: TextStyle(
-                color: Colors.black, fontSize: 13, fontWeight: FontWeight.w500),
-          )),
-          Expanded(
-              child: Text(
-            price,
-            style: TextStyle(color: AppColors.APP_MENU_TEXT, fontSize: 12),
-          )),
-          Expanded(
-              child: Text(value,
-                  style: TextStyle(
-                      color: AppColors.APP_MENU_SUBHEADER_TEXT, fontSize: 13)))
-        ],
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
+      child: Column(children: <Widget>[
+        DetailItemWidget(
+          title: "Comprehensive...",
+          price: "R0.00",
+          value: "R0.00",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Windscreen",
+          price: "",
+          value: "R0.00",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "SASRIA",
+          price: "",
+          value: "R0.00",
+          showPrice: true,
+        ),
+        DetailItemWidget(
+          title: "Admin Fee",
+          price: "",
+          value: "-",
+          showPrice: true,
+        ),
+      ]),
     );
   }
 
@@ -63,35 +73,13 @@ class _YourCoverTabState extends State<YourCoverTab> {
                     child: HeaderTabInfo(
                       text: "SAT71619",
                       txtColor: AppColors.APP_HEADER_BLUE,
-                      
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
-                    child: Column(children: <Widget>[
-                      policyDetailrow(
-                        "Comprehensive...",
-                        "R0.00",
-                        "R0.00",
-                      ),
-                      policyDetailrow(
-                        "Windscreen",
-                        "",
-                        "R0.00",
-                      ),
-                      policyDetailrow(
-                        "SASRIA",
-                        "",
-                        "R0.00",
-                      ),
-                      policyDetailrow(
-                        "Admin Fee",
-                        "",
-                        "-",
-                      ),
-                    ]),
-                  ),
+                  CardContainer(
+                    headerColor: AppColors.APP_HEADER_BLUE,
+                    headerTitle: "SAT71619",
+                    widget: content(context),
+                  )
                 ],
               ),
             ),

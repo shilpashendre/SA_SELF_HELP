@@ -74,18 +74,19 @@ class _BalanceState extends State<Balance> {
                       DetailItemWidget(
                         title: "Capital Amount",
                         value: "R124 029.09",
+                        showPrice: false,
                       ),
                       DetailItemWidget(
                         title: "Payment Arrangement Date",
-                        value: "N/A",
+                        value: "N/A",showPrice: false,
                       ),
                       DetailItemWidget(
                         title: "Payment Arrangement Amount",
-                        value: "N/A",
+                        value: "N/A",showPrice: false,
                       ),
                       DetailItemWidget(
                         title: "Total Outstanding",
-                        value: "R236 140.90",
+                        value: "R236 140.90",showPrice: false,
                       ),
                     ]),
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/customwidget/CardContainer.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
 
 class MyClaimStatus extends StatefulWidget {
@@ -8,6 +9,44 @@ class MyClaimStatus extends StatefulWidget {
 }
 
 class _MyClaimStatusState extends State<MyClaimStatus> {
+  Widget content(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
+      child: Column(children: <Widget>[
+        DetailItemWidget(
+          title: "Policy Number",
+          value: "SAT71619",
+          showPrice: false,
+        ),
+        DetailItemWidget(
+          title: "Claim Number",
+          value: "-",
+          showPrice: false,
+        ),
+        DetailItemWidget(
+          title: "Date Claim Reported",
+          value: "-",
+          showPrice: false,
+        ),
+        DetailItemWidget(
+          title: "Date Claim Qccurred",
+          value: "-",
+          showPrice: false,
+        ),
+        DetailItemWidget(
+          title: "Claim Type",
+          value: "N/A",
+          showPrice: false,
+        ),
+        DetailItemWidget(
+          title: "Current Claim Status",
+          value: "R0.00",
+          showPrice: false,
+        ),
+      ]),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,72 +54,11 @@ class _MyClaimStatusState extends State<MyClaimStatus> {
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
       body: Column(
         children: [
-          Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width / 1.1,
-              decoration: BoxDecoration(
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5,
-                  )
-                ],
-                color: Colors.white,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    decoration:
-                        BoxDecoration(color: AppColors.APP_HEADER_BG_GREY),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "063365:059721",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: AppColors.APP_GREEN,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
-                    child: Column(children: <Widget>[
-                      DetailItemWidget(
-                        title: "Policy Number",
-                        value: "SAT71619",
-                      ),
-                      DetailItemWidget(
-                        title: "Claim Number",
-                        value: "-",
-                      ),
-                      DetailItemWidget(
-                        title: "Date Claim Reported",
-                        value: "-",
-                      ),
-                      DetailItemWidget(
-                        title: "Date Claim Qccurred",
-                        value: "-",
-                      ),
-                      DetailItemWidget(
-                        title: "Claim Type",
-                        value: "N/A",
-                      ),
-                      DetailItemWidget(
-                        title: "Current Claim Status",
-                        value: "R0.00",
-                      ),
-                    ]),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          CardContainer(
+            headerColor: AppColors.APP_GREEN,
+            headerTitle: "063365:059721",
+            widget: content(context),
+          )
         ],
       ),
     ));

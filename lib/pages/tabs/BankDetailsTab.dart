@@ -14,36 +14,29 @@ class _BankDetailsTabState extends State<BankDetailsTab> {
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
       child: Column(children: <Widget>[
         DetailItemWidget(
-          title: "Current Month's Mileage...",
-          value: "391.15 km",
+          title: "Bank Name",
+          showPrice: false,
+          value: "ABSA",
         ),
         DetailItemWidget(
-          title: "Current Month's Days wit...",
-          value: "0",
+          title: "Account Number",
+          showPrice: false,
+          value: "407502125111",
         ),
         DetailItemWidget(
-          title: "Total Drive Time",
-          value: "0.0 hr",
+          title: "Total Drive TimeBranch Code",
+          showPrice: false,
+          value: "63 20 05",
         ),
         DetailItemWidget(
-          title: "Braking Alerts per 100 k...",
-          value: "0",
+          title: "Branch Name",
+          showPrice: false,
+          value: "Business Cenre",
         ),
         DetailItemWidget(
-          title: "Harsh Turning Alerts",
-          value: "0",
-        ),
-        DetailItemWidget(
-          title: "Harsh Turning Alerts per...",
-          value: "0",
-        ),
-        DetailItemWidget(
-          title: "Speeding Alerts",
-          value: "0",
-        ),
-        DetailItemWidget(
-          title: "Last Signal Received Date",
-          value: "03 December 2020",
+          title: "Reference Number",
+          showPrice: false,
+          value: "Deal Number",
         ),
       ]),
     );
@@ -60,21 +53,21 @@ class _BankDetailsTabState extends State<BankDetailsTab> {
             CardContainer(
                 widget: content(context),
                 headerTitle: "ABSA",
-                headerColor: AppColors.APP_GREEN),
+                headerColor: AppColors.APP_HEADER_BLUE),
             SizedBox(
               height: 20,
             ),
             CardContainer(
                 widget: content(context),
-                headerTitle: "November 2020",
-                headerColor: AppColors.APP_GREEN),
+                headerTitle: "FNB",
+                headerColor: AppColors.APP_HEADER_BLUE),
             SizedBox(
               height: 20,
             ),
             CardContainer(
                 widget: content(context),
-                headerTitle: "October 2020",
-                headerColor: AppColors.APP_GREEN),
+                headerTitle: "NEDBANK",
+                headerColor: AppColors.APP_HEADER_BLUE),
             SizedBox(
               height: 20,
             ),
