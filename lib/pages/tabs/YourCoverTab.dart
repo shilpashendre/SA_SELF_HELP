@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
-import 'package:sahelp/constants/Utility.dart';
-import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/customwidget/CardContainer.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
