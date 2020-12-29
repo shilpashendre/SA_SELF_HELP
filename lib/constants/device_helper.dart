@@ -26,4 +26,12 @@ class DeviceHelper {
     if (secondValue != null && secondValue.isNotEmpty) value += secondValue;
     return value;
   }
+
+  static String displayStr(String value) {
+    if (value.length != 0 && value.length < 14) {
+      return value;
+    } else {
+      return value.substring(0, 14) + "...";
+    }
+  }
 }

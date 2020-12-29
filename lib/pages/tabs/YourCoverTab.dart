@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
 class YourCoverTab extends StatefulWidget {
@@ -16,7 +17,7 @@ class _YourCoverTabState extends State<YourCoverTab> {
         children: <Widget>[
           Expanded(
               child: Text(
-            title,
+            DeviceHelper.displayStr(title),
             style: TextStyle(
                 color: Colors.black, fontSize: 13, fontWeight: FontWeight.w500),
           )),
