@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:sahelp/customwidget/MenuData.dart';
+import 'package:flutter/material.dart'; 
 import 'package:sahelp/customwidget/HeaderIconButton.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/dialogs/UpdateProfileMSGDialog.dart';
+import 'package:sahelp/navigationmenu/NavigationItemTitle.dart';
+import 'package:sahelp/navigationmenu/navigation_modal.dart';
 import 'package:sahelp/pages/Balance.dart';
 import 'package:sahelp/pages/BankDetails.dart';
 import 'package:sahelp/pages/ClaimCallBack.dart';
@@ -27,6 +28,7 @@ class AppNavigation extends StatefulWidget {
 
 class _AppNavigationState extends State<AppNavigation> {
   int selectedDrawerIndex = 0;
+
   getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
@@ -86,166 +88,6 @@ class _AppNavigationState extends State<AppNavigation> {
     Navigator.of(context).pop(); // close the drawer
   }
 
-  List<MenuData> listmenu = [
-    MenuData(
-        itemName: "Dashboard",
-        isIconNeeded: true,
-        itemIcon: "assets/images/ic_dashboard.png",
-        isSubtitle: false,
-        isTabPresent: true,
-        tabData: [
-          TabDeatils("Deal Dashboard"),
-          TabDeatils("Insurance Dashboard")
-        ],
-        headerIcon: "survey.png"),
-    MenuData(
-        itemName: "My SA Taxi Profile",
-        itemIcon: "assets/images/ic_my_portfolio.png",
-        isSubtitle: false,
-        isTabPresent: true,
-        isIconNeeded: false,
-        tabData: [
-          TabDeatils("Vehicle Profiles"),
-          TabDeatils("Personal Details")
-        ],
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-      itemName: "Account",
-      isSubtitle: true,
-      isTabPresent: false,
-    ),
-    MenuData(
-        isTabPresent: true,
-        itemName: "Bank Details",
-        itemIcon: "assets/images/ic_bank_details.png",
-        isSubtitle: false,
-        isIconNeeded: true,
-        tabData: [
-          TabDeatils("   063365:065978  "),
-        ],
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        isTabPresent: false,
-        itemName: "Request Settlement Quote",
-        isIconNeeded: false,
-        itemIcon: "assets/images/ic_request_settelment_balance.png",
-        isSubtitle: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        itemName: "Financial Statement", isTabPresent: false, isSubtitle: true),
-    MenuData(
-        isTabPresent: false,
-        itemName: "Balance",
-        isIconNeeded: true,
-        itemIcon: "assets/images/ic_balance.png",
-        isSubtitle: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        isTabPresent: false,
-        itemName: "Deals Details",
-        isIconNeeded: true,
-        itemIcon: "assets/images/ic_personal_no.png",
-        isSubtitle: false,
-        routeName: "/dealdetails",
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-      isTabPresent: true,
-      itemName: "Arrears Statement",
-      isIconNeeded: true,
-      itemIcon: "assets/images/ic_arrears.png",
-      isSubtitle: false,
-      headerIcon: "ic_email_white.png",
-      tabData: [
-        TabDeatils("   063365:065978  "),
-      ],
-    ),
-    MenuData(
-        itemName: "Generate Statement",
-        isTabPresent: false,
-        isIconNeeded: false,
-        itemIcon: "assets/images/ic_generate_statement.png",
-        isSubtitle: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        itemName: "Vehicle Movements", isTabPresent: false, isSubtitle: true),
-    MenuData(
-        isTabPresent: false,
-        itemName: "Track Vehicle",
-        itemIcon: "assets/images/ic_track_vehicle.png",
-        isSubtitle: false,
-        isIconNeeded: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        isTabPresent: false,
-        itemName: "View Performance",
-        isIconNeeded: false,
-        itemIcon: "assets/images/ic_view_performance_phase2.png",
-        isSubtitle: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        isTabPresent: false,
-        itemName: "Request CarTrack Device",
-        itemIcon: "assets/images/ic_request_cartrack_device.png",
-        isSubtitle: false,
-        isIconNeeded: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        itemName: "Mileage per Vehicle",
-        itemIcon: "assets/images/ic_view_performance.png",
-        isTabPresent: true,
-        isSubtitle: false,
-        isIconNeeded: true,
-        tabData: [
-          TabDeatils("   063365:065978  "),
-        ],
-        headerIcon: "ic_email_white.png"),
-    MenuData(itemName: "Insurance", isTabPresent: false, isSubtitle: true),
-    MenuData(
-        isTabPresent: false,
-        itemName: "Policy Details",
-        itemIcon: "assets/images/ic_policy_details.png",
-        isSubtitle: false,
-        isIconNeeded: true,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        isTabPresent: false,
-        itemName: "Claim Call Back",
-        isIconNeeded: false,
-        itemIcon: "assets/images/ic_claim_call_icon.png",
-        isSubtitle: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        isTabPresent: false,
-        itemName: "My Claim & Status",
-        isIconNeeded: true,
-        itemIcon: "assets/images/ic_claims_and_status.png",
-        isSubtitle: false,
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        isTabPresent: true,
-        itemName: "Generate Insurance Documents",
-        isIconNeeded: false,
-        itemIcon: "assets/images/ic_generate_statement.png",
-        isSubtitle: false,
-        tabData: [
-          TabDeatils("Passanger Liability Disc"),
-          TabDeatils("Insurance T&C")
-        ],
-        headerIcon: "ic_email_white.png"),
-    MenuData(
-        itemName: "SA Taxi Details",
-        isTabPresent: true,
-        isSubtitle: false,
-        isIconNeeded: false,
-        itemIcon: "assets/images/ic_generate_statement.png",
-        tabData: [
-          TabDeatils("Announcements"),
-          TabDeatils("Insurance Policy"),
-          TabDeatils("Contact Us"),
-          TabDeatils("Legal Disclaimer"),
-        ],
-        headerIcon: "ic_email_white.png"),
-  ];
   Future<bool> _onWillPop() {
     return showDialog(
         context: context,
@@ -263,21 +105,21 @@ class _AppNavigationState extends State<AppNavigation> {
       onWillPop: _onWillPop,
       child: SafeArea(
         child: DefaultTabController(
-          length: listmenu[selectedDrawerIndex].isTabPresent
-              ? listmenu[selectedDrawerIndex].tabData.length
+          length: navigationItems[selectedDrawerIndex].isTabPresent
+              ? navigationItems[selectedDrawerIndex].tabData.length
               : 0,
           child: Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
               backgroundColor: AppColors.PRIMARY_COLOR,
               title: Text(
-                listmenu[selectedDrawerIndex].itemName.toUpperCase(),
+                navigationItems[selectedDrawerIndex].itemName.toUpperCase(),
                 style: TextStyle(
                     fontWeight: FontWeight.w500, fontFamily: "Roboto"),
               ),
-              bottom: listmenu[selectedDrawerIndex].isTabPresent
+              bottom: navigationItems[selectedDrawerIndex].isTabPresent
                   ? TabBar(
-                      tabs: listmenu[selectedDrawerIndex]
+                      tabs: navigationItems[selectedDrawerIndex]
                           .tabData
                           .asMap()
                           .entries
@@ -294,15 +136,16 @@ class _AppNavigationState extends State<AppNavigation> {
                     )
                   : null,
               actions: <Widget>[
-              
-                listmenu[selectedDrawerIndex].isIconNeeded
+                navigationItems[selectedDrawerIndex].isIconNeeded
                     ? HeaderIconButton(
-                        iconName: listmenu[selectedDrawerIndex].headerIcon)
+                        iconName:
+                            navigationItems[selectedDrawerIndex].headerIcon)
                     : Text("")
               ],
             ),
             drawer: Drawer(
-              child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+                child: Column(
+              children: [
                 DrawerHeader(
                     decoration: BoxDecoration(
                       color: AppColors.PRIMARY_COLOR,
@@ -365,55 +208,28 @@ class _AppNavigationState extends State<AppNavigation> {
                             ],
                           )
                         ])),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: listmenu.asMap().entries.map((menu) {
-                    if (menu.value.isSubtitle) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        color: AppColors.APP_HEADER_BG_GREY,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(menu.value.itemName,
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                  color: AppColors.APP_MENU_SUBHEADER_TEXT)),
-                        ),
-                      );
-                    } else {
-                      return ListTile(
-                        tileColor: menu.value.itemName == "SA Taxi Details"
-                            ? AppColors.APP_HEADER_BG_GREY
-                            : null,
-                        title: Row(
-                          children: <Widget>[
-                            Image.asset(
-                              menu.value.itemIcon,
-                              height: 25.0,
-                              width: 25.0,
-                              color: AppColors.APP_MENU_ICON,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(35.0, 0, 0, 0),
-                              child: Text(
-                                menu.value.itemName,
-                                style: TextStyle(
-                                  color: AppColors.APP_MENU_TEXT,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
+                Expanded(
+                  child: ListView.builder(
+                    // separatorBuilder: (context, counter) {
+                    //   return Divider(
+                    //     height: 12.0,
+                    //   );
+                    // },
+
+                    itemBuilder: (context, counter) {
+                      return NavigationItemTitle(
+                        counter: counter,
                         onTap: () {
-                          onSelectItem(menu.key);
+                          onSelectItem(counter);
                         },
+                        isSelected: counter == selectedDrawerIndex,
                       );
-                    }
-                  }).toList(),
-                )
-              ]),
-            ),
+                    },
+                    itemCount: navigationItems.length,
+                  ),
+                ),
+              ],
+            )),
             body: getDrawerItemWidget(selectedDrawerIndex),
           ),
         ),
