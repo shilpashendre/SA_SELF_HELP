@@ -38,7 +38,7 @@ class _InsurancePolicyState extends State<InsurancePolicy> {
                       decoration:
                           BoxDecoration(color: AppColors.APP_HEADER_BG_GREY),
                       child: HeaderTabInfo(
-                        isBold: false,
+                        
                         text: "Comprehensive Cover*",
                         txtColor: AppColors.APP_HEADER_BLUE,
                       )),

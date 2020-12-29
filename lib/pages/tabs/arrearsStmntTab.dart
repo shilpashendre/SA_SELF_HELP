@@ -38,8 +38,7 @@ class _ArrearsStmtTabState extends State<ArrearsStmtTab> {
                       HeaderTabInfo(
                         txtColor: AppColors.APP_GREEN,
                         text: "Opening Balance: R92 039.05",
-                        isBold: true,
-                      ),
+                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 0, vertical: 15),

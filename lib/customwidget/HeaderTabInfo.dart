@@ -4,9 +4,8 @@ import 'package:sahelp/constants/ColorConstants.dart';
 class HeaderTabInfo extends StatelessWidget {
   final Color txtColor;
   final String text;
-  final bool isBold;
 
-  HeaderTabInfo({this.txtColor, this.text, this.isBold});
+  HeaderTabInfo({this.txtColor, this.text});
 
   @override
   Widget build(BuildContext context) {

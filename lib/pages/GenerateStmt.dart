@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/constants/device_helper.dart';
+import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 import 'package:sahelp/dialogs/CustomDialogBox.dart';
 import 'package:sahelp/dialogs/DealNoDialog.dart';
+// import "package:flutter/cupertino.dart";
 
 class GenerateStmt extends StatefulWidget {
   @override
@@ -12,6 +14,10 @@ class GenerateStmt extends StatefulWidget {
 
 class _GenerateStmtState extends State<GenerateStmt> {
   String dealNo = "Click To Select";
+  DateTime currentDate = DateTime.now();
+  String datefrmt = 'DD/MM/YYYY';
+  String selectedDate = '';
+  bool showDatepicker = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +42,14 @@ class _GenerateStmtState extends State<GenerateStmt> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    width: DeviceHelper.fullWidth,
-                    decoration:
-                        BoxDecoration(color: AppColors.APP_HEADER_BG_GREY),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Statement Report",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: AppColors.APP_HEADER_BLUE,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                      width: DeviceHelper.fullWidth,
+                      decoration:
+                          BoxDecoration(color: AppColors.APP_HEADER_BG_GREY),
+                      child: HeaderTabInfo(
+                      
+                        text: "Statement Report",
+                        txtColor: AppColors.APP_HEADER_BLUE,
+                      )),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
                     width: DeviceHelper.fullWidth,
@@ -139,35 +138,20 @@ class _GenerateStmtState extends State<GenerateStmt> {
                                   margin: EdgeInsets.only(left: 20),
                                   child: Stack(children: [
                                     Container(
-                                      width: 125,
-                                      height: 20,
-                                      child: Text(
-                                        "DD/MM/YYYY",
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            color: AppColors.DIVIDER),
+                                      child: InkWell(
+                                        onTap: () {
+                                          setState(() {
+                                            showDatepicker = !showDatepicker;
+                                          });
+                                        },
+                                        child: Text(
+                                          datefrmt,
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              color: AppColors.DIVIDER),
+                                        ),
                                       ),
                                     ),
-                                    Container(
-                                        height: MediaQuery.of(context)
-                                                .copyWith()
-                                                .size
-                                                .height /
-                                            3,
-                                        color: Colors.amberAccent,
-                                        child: CupertinoDatePicker(
-                                            initialDateTime: DateTime.now(),
-                                            onDateTimeChanged:
-                                                (DateTime newdate) {
-                                              print(newdate);
-                                            },
-                                            use24hFormat: true,
-                                            maximumDate:
-                                                new DateTime(2018, 12, 30),
-                                            minimumYear: 2010,
-                                            maximumYear: 2030,
-                                            mode:
-                                                CupertinoDatePickerMode.date)),
                                   ]),
                                 ),
                               ),
@@ -198,11 +182,77 @@ class _GenerateStmtState extends State<GenerateStmt> {
                   btnGenratereport(),
                   SizedBox(
                     height: 15,
-                  )
+                  ),
                 ],
               ),
             ),
           ),
+          showDatepicker
+              ? Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        color: Colors.white,
+                        child: Column(children: <Widget>[
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                RaisedButton(
+                                  onPressed: () {},
+                                  color: Colors.white,
+                                  elevation: 0,
+                                  child: Text(
+                                    "CANCEL",
+                                    style: TextStyle(
+                                        color: AppColors.APP_HEADER_BLUE),
+                                  ),
+                                ),
+                                RaisedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      datefrmt = selectedDate;
+                                      showDatepicker = false;
+                                    });
+                                  },
+                                  color: Colors.white,
+                                  elevation: 0,
+                                  child: Text(
+                                    "DONE",
+                                    style: TextStyle(
+                                        color: AppColors.APP_HEADER_BLUE),
+                                  ),
+                                )
+                              ]),
+                          SizedBox(
+                            height: 200,
+                            child: CupertinoDatePicker(
+                              maximumDate: DateTime.now(),
+                              initialDateTime: currentDate,
+                              mode: CupertinoDatePickerMode.date,
+                              onDateTimeChanged: (date) {
+                                // print(date);
+                                selectedDate =
+                                    date.toString().substring(8, 10) +
+                                        "/" +
+                                        date.toString().substring(5, 7) +
+                                        "/" +
+                                        date.toString().substring(0, 3);
+
+                                print(selectedDate);
+                              },
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          )
+                        ]),
+                      )
+                    ],
+                  ),
+                )
+              : Container(),
         ],
       ),
     ));

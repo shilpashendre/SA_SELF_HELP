@@ -53,9 +53,9 @@ class _RequestSettlementQuoteState extends State<RequestSettlementQuote> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   HeaderTabInfo(
-                      txtColor: AppColors.APP_HEADER_BLUE,
-                      text: "MR LAWRENCE THABATHILLE WEM",
-                      isBold: true),
+                    txtColor: AppColors.APP_HEADER_BLUE,
+                    text: "MR LAWRENCE THABATHILLE WEM",
+                  ),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
                     width: MediaQuery.of(context).size.width,
@@ -194,7 +194,8 @@ class _RequestSettlementQuoteState extends State<RequestSettlementQuote> {
                                     Row(
                                       children: [
                                         Radio(
-                                          activeColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                          activeColor:
+                                              AppColors.APP_MENU_SUBHEADER_TEXT,
                                           value: yesSelected,
                                           groupValue: "yesSelected",
                                           onChanged: (value) {
@@ -206,7 +207,8 @@ class _RequestSettlementQuoteState extends State<RequestSettlementQuote> {
                                         ),
                                         Text("Yes"),
                                         Radio(
-                                          activeColor: AppColors.APP_MENU_SUBHEADER_TEXT,
+                                          activeColor:
+                                              AppColors.APP_MENU_SUBHEADER_TEXT,
                                           value: noSelected,
                                           groupValue: "noSelected",
                                           onChanged: (value) {

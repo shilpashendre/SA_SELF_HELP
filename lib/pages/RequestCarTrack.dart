@@ -53,7 +53,7 @@ class _RequestCartTrackState extends State<RequestCartTrack> {
                   HeaderTabInfo(
                       txtColor: AppColors.APP_HEADER_BLUE,
                       text: "MR LAWRENCE THABATHILLE WEM",
-                      isBold: true),
+                     ),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
                     width: MediaQuery.of(context).size.width,

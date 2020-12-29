@@ -49,7 +49,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                   HeaderTabInfo(
                       txtColor: AppColors.APP_HEADER_BLUE,
                       text: "Mr Lawrence Thabathille Wen",
-                      isBold: true),
+                     ),
                   ProfileRowWidget(
                       image: "ic_name.png",
                       txtValue: "12 June 1975",
@@ -66,7 +66,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                   HeaderTabInfo(
                       txtColor: AppColors.APP_HEADER_BLUE,
                       text: "Primary Contact",
-                      isBold: true),
+                      ),
                   ProfileRowWidget(
                       image: "ic_personal_no.png",
                       txtValue: "+27 60 560 7288",
@@ -85,7 +85,7 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                   HeaderTabInfo(
                       txtColor: AppColors.APP_HEADER_BLUE,
                       text: "Primary Address",
-                      isBold: true),
+                       ),
                   ProfileRowWidget(
                       image: "address.png",
                       txtValue:

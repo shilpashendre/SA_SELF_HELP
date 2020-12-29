@@ -45,9 +45,9 @@ class _ContactUsState extends State<ContactUs> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       HeaderTabInfo(
-                          txtColor: AppColors.APP_HEADER_BLUE,
-                          text: "Mr Lawrence Thabathille Wen",
-                          isBold: true),
+                        txtColor: AppColors.APP_HEADER_BLUE,
+                        text: "Mr Lawrence Thabathille Wen",
+                      ),
                       ProfileRowWidget(
                           image: "ic_name.png",
                           txtValue: "12 June 1975",
@@ -92,9 +92,9 @@ class _ContactUsState extends State<ContactUs> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       HeaderTabInfo(
-                          txtColor: AppColors.APP_HEADER_BLUE,
-                          text: "Mr Lawrence Thabathille Wen",
-                          isBold: true),
+                        txtColor: AppColors.APP_HEADER_BLUE,
+                        text: "Mr Lawrence Thabathille Wen",
+                      ),
                       ProfileRowWidget(
                           image: "ic_name.png",
                           txtValue: "12 June 1975",

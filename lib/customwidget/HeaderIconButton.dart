@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sahelp/constants/Utility.dart';
 
 class HeaderIconButton extends StatelessWidget {
   final String iconName;
@@ -13,6 +14,8 @@ class HeaderIconButton extends StatelessWidget {
           height: 25,
           width: 25,
         ),
-        onPressed: null);
+        onPressed: () {
+          Utility.shareData(context, "hello", "good morning");
+        });
   }
 }

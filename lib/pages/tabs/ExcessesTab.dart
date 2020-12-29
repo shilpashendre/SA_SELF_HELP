@@ -67,7 +67,7 @@ class _ExcessesTabState extends State<ExcessesTab> {
                     child: HeaderTabInfo(
                       text: "SAT71619",
                       txtColor: AppColors.APP_HEADER_BLUE,
-                      isBold: false,
+                      
                     ),
                   ),
                   Padding(
