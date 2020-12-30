@@ -5,6 +5,7 @@ import 'package:sahelp/pages/login/Login.dart';
 import 'package:sahelp/pages/login/Register.dart';
 import 'package:sahelp/navigationmenu/AppNavigation.dart';
 import 'package:sahelp/pages/survey/surveypage1.dart';
+import 'package:sahelp/pages/survey/surveypage2.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -14,7 +15,8 @@ void main() {
       Login.routeName: (context) => Login(),
       Register.routeName: (context) => Register(),
       PolicyDisplayTab.routeName: (context) => PolicyDisplayTab(),
-      SurveyPage1.routeName: (context) => SurveyPage1()
+      SurveyPage1.routeName: (context) => SurveyPage1(),
+      SurveyPage2.routeName: (context) => SurveyPage2()
     },
   ));
 }

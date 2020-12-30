@@ -195,7 +195,6 @@ class _SurveyDialogtState extends State<SurveyDialog> {
                 if (_radioValue == "Complete Survey Now") {
                   Navigator.of(context).pop();
                   Navigator.pushNamed(context, SurveyPage1.routeName);
-                   
                 } else if (_radioValue == "") {
                   Navigator.of(context).pop();
                 } else {
