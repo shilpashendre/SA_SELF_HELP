@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/Utility.dart';
+import 'package:sahelp/dialogs/SurveyDialog.dart';
 
 class HeaderIconButton extends StatelessWidget {
   final String iconName;
@@ -15,7 +16,14 @@ class HeaderIconButton extends StatelessWidget {
           width: 25,
         ),
         onPressed: () {
-          Utility.shareData(context, "hello", "good morning");
+          if (iconName == "survey.png") {
+            showDialog(
+              context: context,
+              builder: (context) => SurveyDialog(),
+            );
+          } else {
+            Utility.shareData(context, "hello", "good morning");
+          }
         });
   }
 }
