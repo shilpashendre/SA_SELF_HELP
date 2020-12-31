@@ -143,10 +143,12 @@ class _PassangerLiabilityDiscState extends State<PassangerLiabilityDisc> {
                                       width: 125,
                                       height: 20,
                                       child: TextField(
+                                         style: TextStyle(
+                                            color: AppColors.APP_MENU_ICON,
+                                            fontSize: 13),
                                         cursorColor: Colors.black,
                                         keyboardType: TextInputType.number,
                                         decoration: InputDecoration(
-                                            isDense: true,
                                             enabledBorder: UnderlineInputBorder(
                                                 borderSide: BorderSide(
                                                     width: 0.5,

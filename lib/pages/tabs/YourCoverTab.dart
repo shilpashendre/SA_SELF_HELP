@@ -64,15 +64,7 @@ class _YourCoverTabState extends State<YourCoverTab> {
               ),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    decoration:
-                        BoxDecoration(color: AppColors.APP_HEADER_BG_GREY),
-                    child: HeaderTabInfo(
-                      text: "SAT71619",
-                      txtColor: AppColors.APP_HEADER_BLUE,
-                    ),
-                  ),
+                  
                   CardContainer(
                     headerColor: AppColors.APP_HEADER_BLUE,
                     headerTitle: "SAT71619",

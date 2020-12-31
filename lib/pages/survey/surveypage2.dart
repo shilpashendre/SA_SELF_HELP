@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:sahelp/constants/ColorConstants.dart';
 import "package:sahelp/customwidget/ButtonComponent.dart";
 import 'package:sahelp/modal/CheckboxInfoModal.dart';
+import 'package:sahelp/navigationmenu/AppNavigation.dart';
 import 'package:sahelp/pages/survey/surveypage1.dart';
 
 class SurveyPage2 extends StatefulWidget {
@@ -157,6 +158,7 @@ class _SurveyPage2State extends State<SurveyPage2> {
               }
             }).toList();
             print(strVal);
+            Navigator.popAndPushNamed(context, AppNavigation.routeName);
           },
         ),
       ],
