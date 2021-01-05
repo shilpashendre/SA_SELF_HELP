@@ -177,32 +177,32 @@ class _LoginState extends State<Login> {
                                         }
 
                                         // check valid inputs
-                                        if (saIdController.text.length < 13) {
-                                          setState(() {
-                                            isSAValid = true;
-                                          });
-                                        } else {
-                                          setState(() {
-                                            isSAValid = false;
-                                          });
-                                        }
-                                        if (passwordController.text.length <
-                                            13) {
-                                          setState(() {
-                                            isPasswordValid = true;
-                                          });
-                                        } else {
-                                          setState(() {
-                                            isPasswordValid = false;
-                                          });
-                                        }
+                                        // if (saIdController.text.length < 13) {
+                                        //   setState(() {
+                                        //     isSAValid = true;
+                                        //   });
+                                        // } else {
+                                        //   setState(() {
+                                        //     isSAValid = false;
+                                        //   });
+                                        // }
+                                        // if (passwordController.text.length <
+                                        //     13) {
+                                        //   setState(() {
+                                        //     isPasswordValid = true;
+                                        //   });
+                                        // } else {
+                                        //   setState(() {
+                                        //     isPasswordValid = false;
+                                        //   });
+                                        // }
 
-                                        if (!isSAValid && !isPasswordValid) {
-                                          Navigator.pushNamed(
-                                              context, AppNavigation.routeName);
-                                        }
-                                        // Navigator.pushNamed(
-                                        //     context, AppNavigation.routeName);
+                                        // if (!isSAValid && !isPasswordValid) {
+                                        //   Navigator.pushNamed(
+                                        //       context, AppNavigation.routeName);
+                                        // }
+                                        Navigator.pushNamed(
+                                            context, AppNavigation.routeName);
                                       },
                                     ),
                                     SizedBox(

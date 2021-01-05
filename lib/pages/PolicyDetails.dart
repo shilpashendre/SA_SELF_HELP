@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/Utility.dart';
 import 'package:sahelp/customwidget/ButtonComponent.dart';
 import 'package:sahelp/customwidget/CardContainer.dart';
+import 'package:sahelp/customwidget/CustomErrorWidget.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
 import 'package:sahelp/dialogs/UpdateProfileMSGDialog.dart';
 import 'package:sahelp/pages/PolicyDisplayTab.dart';
@@ -12,42 +14,60 @@ class PolicyDetails extends StatefulWidget {
 }
 
 class _PolicyDetailsState extends State<PolicyDetails> {
+  var response;
   viewPolicyTabs() {
     Navigator.popAndPushNamed(context, PolicyDisplayTab.routeName);
   }
 
-  Widget content(BuildContext context) {
+  @override
+  void initState() {
+    super.initState();
+    print(response);
+    res();
+  }
+
+  void res() async {
+    response = await Utility.postapis("SProc_Mobility_GetPolicyDetails");
+    setState(() {
+      response = response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"];
+    });
+    // print(response);
+    // print(response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"]
+    //     ["AccountNumber"]);
+  }
+
+  Widget content(BuildContext context, response) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
       child: Column(children: <Widget>[
         DetailItemWidget(
           title: "Policy Number",
-          value: "SAT71619",
+          value: response["PolicyNo"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Product",
-          value: "Vehicle Owner Protection Pl...",
+          value: response["Product"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Broker Name",
-          value: "SA Taxi Product (Pty) Ltd",
+          value: response["BrokerName"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Motor Insurer Name",
-          value: "Guardrisk Insurance Company",
+          value: response["MotorInsurerName"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Start Date",
-          value: "01 September 2015",
+          value: response["startDate"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Total Premium",
-          value: "R0.00",
+          value: response["TotalPremium"],
           showPrice: false,
         ),
         Padding(
@@ -86,15 +106,16 @@ class _PolicyDetailsState extends State<PolicyDetails> {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
-      body: Column(
-        children: [
-          CardContainer(
-            headerTitle: "063365:059721",
-            headerColor: AppColors.APP_GREEN,
-            widget: content(context),
-          ),
-        ],
-      ),
+      body: response != null
+          ? Column(
+              children: [
+                CardContainer(
+                    headerTitle: "063365:059721",
+                    headerColor: AppColors.APP_GREEN,
+                    widget: content(context, response)),
+              ],
+            )
+          : CustomErrorWidget(),
     ));
   }
 }
