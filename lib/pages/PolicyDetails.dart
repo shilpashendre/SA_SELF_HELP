@@ -31,8 +31,8 @@ class _PolicyDetailsState extends State<PolicyDetails> {
     setState(() {
       response = response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"];
     });
-    // print(response);
-    // print(response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"]
+    print(response);
+    // print(response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"]);
     //     ["AccountNumber"]);
   }
 
@@ -110,7 +110,7 @@ class _PolicyDetailsState extends State<PolicyDetails> {
           ? Column(
               children: [
                 CardContainer(
-                    headerTitle: "063365:059721",
+                    headerTitle: response["AccountNumber"],
                     headerColor: AppColors.APP_GREEN,
                     widget: content(context, response)),
               ],
