@@ -15,6 +15,7 @@ class PolicyDetails extends StatefulWidget {
 
 class _PolicyDetailsState extends State<PolicyDetails> {
   var response;
+  
   viewPolicyTabs() {
     Navigator.popAndPushNamed(context, PolicyDisplayTab.routeName);
   }
@@ -22,18 +23,17 @@ class _PolicyDetailsState extends State<PolicyDetails> {
   @override
   void initState() {
     super.initState();
-    print(response);
-    res();
+
+    getApiResponse();
   }
 
-  void res() async {
-    response = await Utility.postapis("SProc_Mobility_GetPolicyDetails");
+  void getApiResponse() async {
+     
+    response = await Utility.postapis("SProc_Mobility_GetPolicyDetails", ["@IDNumber~~7506125555085"]);
     setState(() {
       response = response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"];
     });
-    print(response);
-    // print(response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"]);
-    //     ["AccountNumber"]);
+    // print(response);
   }
 
   Widget content(BuildContext context, response) {

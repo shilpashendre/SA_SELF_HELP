@@ -36,7 +36,7 @@ class DetailItemWidget extends StatelessWidget {
               : Container(),
           Expanded(
               flex: 1,
-              child: Text(Utility.displayStr(value),
+              child: Text(Utility.displayValue(value),
                   style: TextStyle(
                       color: AppColors.APP_MENU_SUBHEADER_TEXT, fontSize: 13)))
         ],

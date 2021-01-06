@@ -23,6 +23,19 @@ class Utility {
     }
   }
 
+  // to show specific length of string
+  static String displayValue(String value) {
+    if (value != null) {
+      if (value.length != 0 && value.length < 23) {
+        return value;
+      } else {
+        return value.substring(0, 23) + "...";
+      }
+    } else {
+      return "N/A";
+    }
+  }
+
   //  share data through social media
   static void shareData(BuildContext context, String text, String subject) {
     final RenderBox box = context.findRenderObject();
@@ -31,7 +44,8 @@ class Utility {
         sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size);
   }
 
-  static Future<dynamic> postapis(String procedureName) async {
+  static Future<dynamic> postapis(
+      String procedureName, List<String> list) async {
     var responseJson;
     try {
       final response = await http.post(
@@ -39,10 +53,7 @@ class Utility {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },
-        body: jsonEncode({
-          "ProcedureName": procedureName,
-          "Parameters": ["@IDNumber~~7506125555085"]
-        }),
+        body: jsonEncode({"ProcedureName": procedureName, "Parameters": list}),
       );
       responseJson = _response(response);
     } on SocketException {
