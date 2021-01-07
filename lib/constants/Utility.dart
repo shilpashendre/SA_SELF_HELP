@@ -13,6 +13,9 @@ class Utility {
 
   static var responseJson;
   static Xml2Json xml2json = new Xml2Json();
+static String accountNumber="063365:059721";
+static String accountNumber2="063365:065978";
+static String idNumber="7506125555085";
 
 // to show specific length of string
   static String displayStr(String value) {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/Utility.dart';
 import 'package:sahelp/customwidget/CardContainer.dart';
+import 'package:sahelp/customwidget/CustomErrorWidget.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
 
 class DealDetails extends StatefulWidget {
@@ -10,54 +12,73 @@ class DealDetails extends StatefulWidget {
 }
 
 class _DealDetailsState extends State<DealDetails> {
-  
-  Widget content(BuildContext context) {
+  var response;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getApiResponse();
+  }
+
+  void getApiResponse() async {
+    response = await Utility.postapis(
+        "SProc_Mobility_GetDealDetails", ["@IDNumber~~" + Utility.idNumber]);
+    setState(() {
+      response = response["NewDataSet"] != null
+          ? response["NewDataSet"]["SProc_Mobility_GetDealDetails"]
+          : null;
+    });
+    // print(response);
+  }
+
+  Widget content(BuildContext context, var response) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
       child: Column(children: <Widget>[
         DetailItemWidget(
           title: "Account Status",
-          value: "Open",
+          value: response["AccountStatus"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Vehicle Description",
-          value: "TOYOTA QUANTUM SESFIKLE 1...",
+          value: response["VehicleDescription"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Payment Type",
-          value: "CASH",
+          value: response["PaymentType"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Next Instalment Date",
-          value: "01 January 2021",
+          value: response["NextInstalmentDate"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Monthly Instalment",
-          value: "R31 889.99",
+          value: response["MonthlyInstalment"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Instalment remaining",
-          value: "14",
+          value: response["InstalmentsRemaining"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Interest Rate",
-          value: "24.5%",
+          value: response["InterestRate"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Deal Inception Date",
-          value: "03 November 2015",
+          value: response["DealInceptionDate"],
           showPrice: false,
         ),
         DetailItemWidget(
           title: "Deal Expiry Date",
-          value: "03 February 2015",
+          value: response["DealExpiryDate"],
           showPrice: false,
         ),
       ]),
@@ -69,15 +90,17 @@ class _DealDetailsState extends State<DealDetails> {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
-      body: Column(
-        children: [
-          CardContainer(
-            headerColor: AppColors.APP_GREEN,
-            headerTitle: "063365:065978",
-            widget: content(context),
-          )
-        ],
-      ),
+      body: response != null
+          ? Column(
+              children: [
+                CardContainer(
+                  headerColor: AppColors.APP_GREEN,
+                  headerTitle: response["AccountNumber"],
+                  widget: content(context, response),
+                )
+              ],
+            )
+          : CustomErrorWidget(),
     ));
   }
 }

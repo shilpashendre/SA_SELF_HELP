@@ -26,8 +26,11 @@ class _BalanceState extends State<Balance> {
         "SProc_Mobility_GetBalanceDetails", ["@IDNumber~~7506125555085"]);
 
     setState(() {
-      response = response["NewDataSet"]["SProc_Mobility_GetBalanceDetails"];
+      response = response["NewDataSet"]!=null
+          ? response["NewDataSet"]["SProc_Mobility_GetBalanceDetails"]
+          : null;
     });
+    
     // print(response);
   }
 

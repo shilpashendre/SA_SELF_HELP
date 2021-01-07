@@ -33,11 +33,13 @@ class _RequestCartTrackState extends State<RequestCartTrack> {
   }
 
   void getApiResponse() async {
-    response = await Utility.postapis("SProc_Mobility_GetRegistrationNumber",
-    ["@IDNumber~~7506125555085"]);
+    response = await Utility.postapis(
+        "SProc_Mobility_GetRegistrationNumber", ["@IDNumber~~7506125555085"]);
     print(response);
     setState(() {
-      response = response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"];
+      response = response["NewDataSet"] != null
+          ? response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"]
+          : null;
     });
     // print(response);
   }
