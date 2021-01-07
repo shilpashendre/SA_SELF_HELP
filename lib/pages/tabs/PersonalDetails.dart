@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/Utility.dart';
 import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 import 'package:sahelp/dialogs/UpdateProfileDialog.dart';
@@ -14,6 +15,28 @@ class PersonalDetails extends StatefulWidget {
 class _PersonalDetailsState extends State<PersonalDetails> {
   String dealNo = "Click To Select";
   String strNote = "Click To";
+
+  var response;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getApiResponse();
+  }
+
+  void getApiResponse() async {
+    response = await Utility.postapis(
+        "SProc_Mobility_GetProfileDetails", ["@IDNumber~~" + Utility.idNumber]);
+
+    setState(() {
+      response = response["NewDataSet"] != null
+          ? response["NewDataSet"]["SProc_Mobility_GetProfileDetails"]
+          : null;
+    });
+
+    // print(response);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,55 +70,58 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   HeaderTabInfo(
-                      txtColor: AppColors.APP_HEADER_BLUE,
-                      text: "Mr Lawrence Thabathille Wen",
-                     ),
+                    txtColor: AppColors.APP_HEADER_BLUE,
+                    text: Utility.displayValue(response[""], "N/A"),
+                  ),
                   ProfileRowWidget(
                       image: "ic_name.png",
-                      txtValue: "12 June 1975",
+                      txtValue:
+                          Utility.displayValue(response["DateOfBirth"], "-"),
                       label: "Date of Birth"),
                   divider(true),
                   ProfileRowWidget(
-                      image: "ic_sex.png", txtValue: "Male", label: "Gender"),
+                      image: "ic_sex.png",
+                      txtValue: Utility.displayValue(response["Gender"], "-"),
+                      label: "Gender"),
                   divider(true),
                   ProfileRowWidget(
                       image: "email_profile.png",
-                      txtValue: "-",
+                      txtValue: Utility.displayValue(response["Email"], "-"),
                       label: "Email"),
                   divider(false),
                   HeaderTabInfo(
-                      txtColor: AppColors.APP_HEADER_BLUE,
-                      text: "Primary Contact",
-                      ),
+                    txtColor: AppColors.APP_HEADER_BLUE,
+                    text: "Primary Contact",
+                  ),
                   ProfileRowWidget(
                       image: "ic_personal_no.png",
-                      txtValue: "+27 60 560 7288",
+                      txtValue: Utility.displayValue(response["CellTel"], "-"),
                       label: "Mobile"),
                   divider(true),
                   ProfileRowWidget(
                       image: "tel_number.png",
-                      txtValue: "(021) 949 6581",
+                      txtValue: Utility.displayValue(response["HomeTel"], "-"),
                       label: "Home"),
                   divider(true),
                   ProfileRowWidget(
                       image: "ic_work_no2.png",
-                      txtValue: "(021) 949 6581",
+                      txtValue: Utility.displayValue(response["WorkTel"], "-"),
                       label: "Work"),
                   divider(false),
                   HeaderTabInfo(
-                      txtColor: AppColors.APP_HEADER_BLUE,
-                      text: "Primary Address",
-                       ),
+                    txtColor: AppColors.APP_HEADER_BLUE,
+                    text: "Primary Address",
+                  ),
                   ProfileRowWidget(
                       image: "address.png",
-                      txtValue:
-                          "42 THAFENI STREET, MFULENI EXT 4, MFULENI EXT 4, 7",
+                      txtValue: Utility.displayValue(
+                          response["ResidentialAddress"], "-"),
                       label: "Mobile"),
                   divider(true),
                   ProfileRowWidget(
                       image: "ic_postal_address2.png",
                       txtValue:
-                          "42 THAFENI STREET, MFULENI EXT 4, MFULENI EXT 4, 7",
+                          Utility.displayValue(response["PostalAddress"], "-"),
                       label: "Work"),
                   Divider(
                     indent: 15,

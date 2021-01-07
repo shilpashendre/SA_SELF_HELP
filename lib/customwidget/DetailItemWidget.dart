@@ -19,7 +19,7 @@ class DetailItemWidget extends StatelessWidget {
           Expanded(
               flex: showPrice ? 2 : 1,
               child: Text(
-                Utility.displayStr(title),
+                Utility.displayValue(title, "N/A"),
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 13,
@@ -36,7 +36,7 @@ class DetailItemWidget extends StatelessWidget {
               : Container(),
           Expanded(
               flex: 1,
-              child: Text(Utility.displayValue(value),
+              child: Text(Utility.displayValue(value, "N/A"),
                   style: TextStyle(
                       color: AppColors.APP_MENU_SUBHEADER_TEXT, fontSize: 13)))
         ],

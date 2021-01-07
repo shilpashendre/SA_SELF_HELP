@@ -23,7 +23,6 @@ class _DealDBState extends State<DealDB> {
   void getApiResponse() async {
     response = await Utility.postapis(
         "SProc_Mobility_DealDashboard", ["@IDNumber~~" + Utility.idNumber]);
-
     setState(() {
       response = response["NewDataSet"] != null
           ? response["NewDataSet"]["SProc_Mobility_DealDashboard"]
@@ -59,9 +58,8 @@ class _DealDBState extends State<DealDB> {
                       children: <Widget>[
                         CardContainer(
                           headerColor: AppColors.PRIMARY_COLOR,
-                          headerTitle: response["AccountNumber"] != null
-                              ? response["AccountNumber"]
-                              : "N/A",
+                          headerTitle: Utility.displayValue(
+                              response["AccountNumber"], "N/A"),
                           widget: content(),
                         ),
                         Container(
@@ -147,7 +145,8 @@ class _DealDBState extends State<DealDB> {
                       borderRadius: BorderRadius.circular(50)),
                   child: Center(
                     child: Text(
-                      response["InstalmentsRemaining"],
+                      Utility.displayValue(
+                          response["InstalmentsRemaining"], "N/A"),
                       style: TextStyle(
                         fontSize: 28,
                         color: AppColors.APP_MENU_SUBHEADER_TEXT,

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
+import 'package:sahelp/constants/Utility.dart';
+import 'package:sahelp/constants/device_helper.dart';
 import 'package:sahelp/customwidget/CardContainer.dart';
+import 'package:sahelp/customwidget/CustomErrorWidget.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
 
 class BankDetailsTab extends StatefulWidget {
@@ -9,34 +12,56 @@ class BankDetailsTab extends StatefulWidget {
 }
 
 class _BankDetailsTabState extends State<BankDetailsTab> {
-  Widget content(BuildContext context) {
+  var response;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getApiResponse();
+  }
+
+  void getApiResponse() async {
+    response = await Utility.postapis("Sproc_Mobility_GetBankdetails",
+        ["@AccountNumber~~" + Utility.accountNumber2]);
+
+    setState(() {
+      response = response["NewDataSet"] != null
+          ? response["NewDataSet"]["Sproc_Mobility_GetBankdetails"]
+          : null;
+    });
+
+    // print(response);
+  }
+
+  Widget content(BuildContext context, var response) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 15),
       child: Column(children: <Widget>[
         DetailItemWidget(
           title: "Bank Name",
           showPrice: false,
-          value: "ABSA",
+          value: response["BankName"],
         ),
         DetailItemWidget(
           title: "Account Number",
           showPrice: false,
-          value: "407502125111",
+          value: response["AccountNo"],
         ),
         DetailItemWidget(
           title: "Total Drive TimeBranch Code",
           showPrice: false,
-          value: "63 20 05",
+          value: response["BranchCode"],
         ),
         DetailItemWidget(
           title: "Branch Name",
           showPrice: false,
-          value: "Business Cenre",
+          value: response["BrachName"],
         ),
         DetailItemWidget(
           title: "Reference Number",
           showPrice: false,
-          value: "Deal Number",
+          value: response["ReferenceNumber"],
         ),
       ]),
     );
@@ -47,33 +72,32 @@ class _BankDetailsTabState extends State<BankDetailsTab> {
     return SafeArea(
         child: Scaffold(
       backgroundColor: AppColors.APP_HEADER_BG_GREY,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            CardContainer(
-                widget: content(context),
-                headerTitle: "ABSA",
-                headerColor: AppColors.APP_HEADER_BLUE),
-            SizedBox(
-              height: 20,
-            ),
-            CardContainer(
-                widget: content(context),
-                headerTitle: "FNB",
-                headerColor: AppColors.APP_HEADER_BLUE),
-            SizedBox(
-              height: 20,
-            ),
-            CardContainer(
-                widget: content(context),
-                headerTitle: "NEDBANK",
-                headerColor: AppColors.APP_HEADER_BLUE),
-            SizedBox(
-              height: 20,
-            ),
-          ],
-        ),
-      ),
+      body: response != null
+          ? Container(
+              height: DeviceHelper.fullHeight,
+              width: DeviceHelper.fullWidth,
+              child: ListView.builder(
+                itemCount: response.length,
+                itemBuilder: (context, counter) {
+                  return Container(
+                    child: Column(
+                      children: [
+                        CardContainer(
+                            widget: content(context, response[counter]),
+                            headerTitle: response[counter]["BankName"] != null
+                                ? response[counter]["BankName"]
+                                : "N/A",
+                            headerColor: AppColors.APP_HEADER_BLUE),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            )
+          : CustomErrorWidget(),
     ));
   }
 }
