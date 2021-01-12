@@ -14,10 +14,16 @@ class PolicyDetails extends StatefulWidget {
 }
 
 class _PolicyDetailsState extends State<PolicyDetails> {
-  var response;
+   var response;
+  bool showLoader = true;
 
   viewPolicyTabs() {
-    Navigator.popAndPushNamed(context, PolicyDisplayTab.routeName);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => PolicyDisplayTab(
+                  response: response,
+                )));
   }
 
   @override
@@ -35,7 +41,7 @@ class _PolicyDetailsState extends State<PolicyDetails> {
           ? response["NewDataSet"]["SProc_Mobility_GetPolicyDetails"]
           : null;
     });
-    // print(response);
+    print(response);
   }
 
   Widget content(BuildContext context, response) {
@@ -117,7 +123,7 @@ class _PolicyDetailsState extends State<PolicyDetails> {
                     widget: content(context, response)),
               ],
             )
-          : CustomErrorWidget(),
+          : CustomErrorWidget(showLoader: showLoader)
     ));
   }
 }

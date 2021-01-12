@@ -12,7 +12,8 @@ class BankDetailsTab extends StatefulWidget {
 }
 
 class _BankDetailsTabState extends State<BankDetailsTab> {
-  var response;
+   var response;
+  bool showLoader = true;
 
   @override
   void initState() {
@@ -97,7 +98,7 @@ class _BankDetailsTabState extends State<BankDetailsTab> {
                 },
               ),
             )
-          : CustomErrorWidget(),
+          :CustomErrorWidget(showLoader: showLoader)
     ));
   }
 }

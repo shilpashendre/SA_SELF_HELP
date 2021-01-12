@@ -55,9 +55,9 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   HeaderTabInfo(
-                      txtColor: AppColors.APP_HEADER_BLUE,
-                      text: "MR LAWRENCE THABATHILLE WEM",
-                       ),
+                    txtColor: AppColors.APP_HEADER_BLUE,
+                    text: "MR LAWRENCE THABATHILLE WEM",
+                  ),
                   Container(
                     padding: EdgeInsets.fromLTRB(0, 7, 0, 0),
                     width: MediaQuery.of(context).size.width,
@@ -87,7 +87,7 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                         saIDNo,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            fontSize: 13, color: Colors.black),
+                                            fontSize: 11, color: Colors.black),
                                       ),
                                     ),
                                   ]),
@@ -100,8 +100,8 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                   child: Text("SA ID No",
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                          fontSize: 13,
-                                          color: AppColors.DIVIDER)),
+                                          fontSize: 11,
+                                          color: AppColors.APP_GREY_DIVIDER)),
                                 ),
                               ),
                             ],
@@ -144,12 +144,16 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                   child: Container(
                                     margin: EdgeInsets.only(left: 20),
                                     child: Stack(children: [
-                                      Text(
-                                        dealNo,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            color: AppColors.DIVIDER),
+                                      Positioned(
+                                        top: 5,
+                                        child: Text(
+                                          dealNo,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 11,
+                                              color:
+                                                  AppColors.APP_GREY_DIVIDER),
+                                        ),
                                       ),
                                       Image.asset(
                                           "assets/images/bg_clicktoselect.png")
@@ -164,8 +168,8 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                   child: Text("Deal No",
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                          fontSize: 13,
-                                          color: AppColors.DIVIDER)),
+                                          fontSize: 11,
+                                          color: AppColors.APP_GREY_DIVIDER)),
                                 ),
                               ),
                             ],
@@ -195,28 +199,27 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                   child: Stack(children: [
                                     Container(
                                       width: 125,
-                                      height: 20,
+                                      height: DeviceHelper.dheight_20,
                                       child: TextField(
                                         style: TextStyle(
                                             color: AppColors.APP_MENU_ICON,
                                             fontSize: 13),
-                                        cursorColor: Colors.black,
-                                        keyboardType: TextInputType.number,
+                                        cursorColor: Colors.black, 
                                         maxLength: 13,
                                         decoration: InputDecoration(
                                           counterText: "",
                                           enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                   color:
-                                                      AppColors.APP_MENU_ICON)),
+                                                      AppColors.APP_GREY_DIVIDER)),
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                                 color: AppColors.APP_MENU_ICON),
                                           ),
                                           hintText: "Enter Registration",
                                           hintStyle: TextStyle(
-                                              color: AppColors.APP_MENU_ICON,
-                                              fontSize: 13),
+                                              color: AppColors.APP_GREY_DIVIDER,
+                                              fontSize: 11),
                                         ),
                                       ),
                                     ),
@@ -230,8 +233,8 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                   child: Text("Vehicle Reg No",
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                          fontSize: 13,
-                                          color: AppColors.DIVIDER)),
+                                          fontSize: 11,
+                                          color: AppColors.APP_GREY_DIVIDER)),
                                 ),
                               ),
                             ],
@@ -265,8 +268,8 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                       currentDate,
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          fontSize: 13,
-                                          color: AppColors.APP_MENU_ICON),
+                                          fontSize: 11,
+                                          color: AppColors.APP_GREY_DIVIDER),
                                     ),
                                   ]),
                                 ),
@@ -278,8 +281,8 @@ class _ClaimCallBackState extends State<ClaimCallBack> {
                                   child: Text("Date of Request",
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                          fontSize: 13,
-                                          color: AppColors.DIVIDER)),
+                                          fontSize: 11,
+                                          color: AppColors.APP_GREY_DIVIDER)),
                                 ),
                               ),
                             ],

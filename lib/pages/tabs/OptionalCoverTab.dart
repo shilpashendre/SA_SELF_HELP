@@ -5,6 +5,10 @@ import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
 class OptionalCoverTab extends StatefulWidget {
   static const String routeName = '/dealdetails';
+
+  final response;
+  OptionalCoverTab({this.response});
+  
   @override
   _OptionalCoverTabState createState() => _OptionalCoverTabState();
 }

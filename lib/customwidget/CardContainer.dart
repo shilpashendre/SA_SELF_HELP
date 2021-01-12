@@ -1,5 +1,4 @@
-import "package:flutter/material.dart"; 
-import 'package:sahelp/customwidget/DetailItemWidget.dart';
+import "package:flutter/material.dart";  
 import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
 class CardContainer extends StatelessWidget {

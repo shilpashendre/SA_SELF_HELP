@@ -2,15 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/customwidget/CardContainer.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
-import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
 class YourCoverTab extends StatefulWidget {
   static const String routeName = '/dealdetails';
+
+  final response;
+  YourCoverTab({this.response});
+
   @override
   _YourCoverTabState createState() => _YourCoverTabState();
 }
+// {AccountNumber: 063365:059721, PolicyNo: SAT71619, Product: Vehicle Owner Protection Plan (VOPP), 
+// BrokerName: SA Taxi Protect (Pty) Ltd, MotorInsurerName: Guardrisk Insurance Company Limited, 
+// SumInsured: R0.00, startDate: 01 September 2015, TotalPremium: R0.00, ComprehensiveCover: R0.00, 
+// Windscreen: R0.00, Sasria: R0.00, PolicyVehicleDescription: -, RegistrationNumber: TBA 
+//               , ChassisNo: -, EngineNo: -, DeathBenefit: No, VehicleMake: N/A), VehicleModel: N/A)  , VehicleYear: 0}
 
 class _YourCoverTabState extends State<YourCoverTab> {
+  
   Widget content(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 5),
@@ -64,7 +73,6 @@ class _YourCoverTabState extends State<YourCoverTab> {
               ),
               child: Column(
                 children: <Widget>[
-                  
                   CardContainer(
                     headerColor: AppColors.APP_HEADER_BLUE,
                     headerTitle: "SAT71619",

@@ -12,7 +12,8 @@ class ArrearsStmtTab extends StatefulWidget {
 }
 
 class _ArrearsStmtTabState extends State<ArrearsStmtTab> {
-  var response;
+   var response;
+  bool showLoader = true;
 
   @override
   void initState() {
@@ -69,6 +70,7 @@ class _ArrearsStmtTabState extends State<ArrearsStmtTab> {
                 title: "Total Arrears",
                 value: value.value["TotalArrears"],
                 showPrice: false,
+                color:AppColors.APP_GREEN
               ),
             ]),
           ),
@@ -98,7 +100,7 @@ class _ArrearsStmtTabState extends State<ArrearsStmtTab> {
                       widget: content(context, response),
                     ),
                   )
-                : CustomErrorWidget(),
+                : CustomErrorWidget(showLoader: showLoader)
           )),
     );
   }

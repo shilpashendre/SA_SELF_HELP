@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:sahelp/constants/ColorConstants.dart';
 import 'package:sahelp/customwidget/CardContainer.dart';
 import 'package:sahelp/customwidget/DetailItemWidget.dart';
-import 'package:sahelp/customwidget/HeaderTabInfo.dart';
 
 class ExcessesTab extends StatefulWidget {
   static const String routeName = '/dealdetails';
+
+  final response;
+  ExcessesTab({this.response});
+
   @override
   _ExcessesTabState createState() => _ExcessesTabState();
 }

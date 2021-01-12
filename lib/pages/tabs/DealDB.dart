@@ -11,7 +11,8 @@ class DealDB extends StatefulWidget {
 }
 
 class _DealDBState extends State<DealDB> {
-  var response;
+   var response;
+  bool showLoader = true;
 
   @override
   void initState() {
@@ -85,7 +86,7 @@ class _DealDBState extends State<DealDB> {
                 ),
               ],
             )
-          : CustomErrorWidget(),
+          : CustomErrorWidget(showLoader: showLoader)
     ));
   }
 

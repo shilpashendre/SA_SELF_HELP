@@ -7,11 +7,18 @@ import 'package:sahelp/pages/tabs/YourCoverTab.dart';
 
 class PolicyDisplayTab extends StatefulWidget {
   static const String routeName = "/policytab";
+  final response;
+  PolicyDisplayTab({this.response});
   @override
   _PolicyDisplayTabState createState() => _PolicyDisplayTabState();
 }
 
 class _PolicyDisplayTabState extends State<PolicyDisplayTab> {
+  @override
+  void initState() {
+    super.initState(); 
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -48,7 +55,7 @@ class _PolicyDisplayTabState extends State<PolicyDisplayTab> {
                 isScrollable: true,
               )),
           body: TabBarView(
-              children: [YourCoverTab(), OptionalCoverTab(), ExcessesTab()])),
+              children: [YourCoverTab(response:this.widget.response), OptionalCoverTab(response:this.widget.response), ExcessesTab(response:this.widget.response)])),
     ));
   }
 }

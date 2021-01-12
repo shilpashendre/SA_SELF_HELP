@@ -12,7 +12,8 @@ class DealDetails extends StatefulWidget {
 }
 
 class _DealDetailsState extends State<DealDetails> {
-  var response;
+   var response;
+  bool showLoader = true;
 
   @override
   void initState() {
@@ -100,7 +101,7 @@ class _DealDetailsState extends State<DealDetails> {
                 )
               ],
             )
-          : CustomErrorWidget(),
+          :  CustomErrorWidget(showLoader: showLoader)
     ));
   }
 }

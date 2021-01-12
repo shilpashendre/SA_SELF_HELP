@@ -12,7 +12,8 @@ class MileageVehicleTab extends StatefulWidget {
 }
 
 class _MileageVehicleTabState extends State<MileageVehicleTab> {
-  var response;
+   var response;
+  bool showLoader = true;
 
   @override
   void initState() {
@@ -109,7 +110,7 @@ class _MileageVehicleTabState extends State<MileageVehicleTab> {
                   },
                 ),
               )
-            : CustomErrorWidget(),
+            : CustomErrorWidget(showLoader: showLoader)
       ),
     );
   }

@@ -4,6 +4,10 @@ import "package:sahelp/customwidget/ButtonComponent.dart";
 import 'package:sahelp/dialogs/CustomDialogBox.dart';
 
 class CustomErrorWidget extends StatelessWidget {
+  final showLoader;
+
+  CustomErrorWidget({this.showLoader});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -81,6 +85,9 @@ class CustomErrorWidget extends StatelessWidget {
                           });
                     },
                   ),
+                  showLoader != null && showLoader
+                      ? Center(child: CircularProgressIndicator())
+                      : Container(),
                 ],
               ),
             ),

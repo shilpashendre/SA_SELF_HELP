@@ -7,6 +7,7 @@ class DeviceHelper {
   static double fullHeight = deviceSize.height;
   static double fullWidth = deviceSize.width;
   static double dh10 = deviceSize.height * 0.01;
+  static double dheight_20 = deviceSize.height * 0.02;
   static double dh30 = deviceSize.height * 0.03;
   static double dh5 = deviceSize.height * 0.005;
   static double dh15 = deviceSize.height * 0.015;

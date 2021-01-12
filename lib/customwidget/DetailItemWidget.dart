@@ -7,8 +7,10 @@ class DetailItemWidget extends StatelessWidget {
   final String value;
   final bool showPrice;
   final String price;
+  final Color color;
 
-  DetailItemWidget({this.title, this.value, this.showPrice, this.price});
+  DetailItemWidget(
+      {this.title, this.value, this.showPrice, this.price, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class DetailItemWidget extends StatelessWidget {
               flex: showPrice ? 2 : 1,
               child: Text(
                 Utility.displayValue(title, "N/A"),
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 13,
@@ -30,6 +33,7 @@ class DetailItemWidget extends StatelessWidget {
                   flex: 1,
                   child: Text(
                     price,
+                    overflow: TextOverflow.ellipsis,
                     style:
                         TextStyle(color: AppColors.APP_MENU_TEXT, fontSize: 12),
                   ))
@@ -37,8 +41,12 @@ class DetailItemWidget extends StatelessWidget {
           Expanded(
               flex: 1,
               child: Text(Utility.displayValue(value, "N/A"),
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      color: AppColors.APP_MENU_SUBHEADER_TEXT, fontSize: 13)))
+                      color: color != null
+                          ? color
+                          : AppColors.APP_MENU_SUBHEADER_TEXT,
+                      fontSize: 13)))
         ],
       ),
     );

@@ -12,7 +12,8 @@ class Balance extends StatefulWidget {
 }
 
 class _BalanceState extends State<Balance> {
-  var response;
+   var response;
+  bool showLoader = true; 
 
   @override
   void initState() {
@@ -26,11 +27,11 @@ class _BalanceState extends State<Balance> {
         "SProc_Mobility_GetBalanceDetails", ["@IDNumber~~7506125555085"]);
 
     setState(() {
-      response = response["NewDataSet"]!=null
+      response = response["NewDataSet"] != null
           ? response["NewDataSet"]["SProc_Mobility_GetBalanceDetails"]
           : null;
     });
-    
+
     // print(response);
   }
 
@@ -81,17 +82,16 @@ class _BalanceState extends State<Balance> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: AppColors.APP_HEADER_BG_GREY,
-      body: response != null
-          ? Column(
-              children: [
-                CardContainer(
-                    headerTitle: response["AccountNumber"],
-                    headerColor: AppColors.APP_RED,
-                    widget: content(context, response)),
-              ],
-            )
-          : CustomErrorWidget(),
-    ));
+            backgroundColor: AppColors.APP_HEADER_BG_GREY,
+            body: response != null
+                ? Column(
+                    children: [
+                      CardContainer(
+                          headerTitle: response["AccountNumber"],
+                          headerColor: AppColors.APP_RED,
+                          widget: content(context, response)),
+                    ],
+                  )
+                : CustomErrorWidget(showLoader: showLoader)));
   }
 }
